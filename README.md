@@ -1,4 +1,3 @@
 # InformatikSemesterprojekt
 
 Hier alle Dateien zum Projektsemester in den zugehörigen Ordner hochladen hochladen.
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQC21yFP27g+X2sYn8tdDIBXB04wRG0xKWK3TE0XO+6tHGQ/tqCflLs1hcbd48MVKiYHlL3TYmtJDm0Q6yEIu6KgfXDTF+5l+qi3A2otk3FGUW945wnu8geObEX+0loL4GDnksvW0Uo++zcnjMSUT68hFA3HezTyshNFtllDRCKr8Q== RSA-1024
