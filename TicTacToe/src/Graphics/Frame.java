@@ -10,9 +10,12 @@ import Components.*;
 
 public class Frame extends JFrame{
 
-	Circle c = new Circle(0,0);
-	Cross cr = new Cross(100,100);
+	Circle c1 = new Circle(0,0);
+	Cross cr1 = new Cross(100,100);
+	Circle c2 = new Circle(200,200);
+	Cross cr2 = new Cross(300,300);
 	int counter = 0;
+	
 	
 	public Frame() {
 		
@@ -20,7 +23,8 @@ public class Frame extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Tic Tac Toe ");
 		setBounds(0, 0, Toolkit.getDefaultToolkit().getScreenSize().width , (Toolkit.getDefaultToolkit().getScreenSize().height - 30));
-		add(new Draw(c, cr));
+		add(new Draw(c1, cr1, 0));
+		add(new Draw(c2, cr2, 1));
 		setVisible(true);
 		
 		addMouseListener(new MouseListener() {
@@ -28,15 +32,16 @@ public class Frame extends JFrame{
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if (counter == 0) {
-					c.set_x(arg0.getX());
-					c.set_y(arg0.getY());
-					counter = 1;
+					
+					c2.set_x(arg0.getX());
+					c2.set_y(arg0.getY());
+					counter++;
 				}
 				else {
-					cr.set_x(arg0.getX());
-					cr.set_y(arg0.getY());
+					cr2.set_x(arg0.getX());
+					cr2.set_y(arg0.getY());
 					counter = 0;
-				}
+				} 
 				repaint();
 			}
 

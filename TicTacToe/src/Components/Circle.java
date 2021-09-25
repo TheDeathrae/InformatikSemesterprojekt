@@ -1,5 +1,6 @@
 package Components;
 
+
 public class Circle {
 	
 	private int xKoordinate;
@@ -22,4 +23,5 @@ public class Circle {
 	public void set_y(int y) {
 		this.yKoordinate = y;
 	}
+	
 }
