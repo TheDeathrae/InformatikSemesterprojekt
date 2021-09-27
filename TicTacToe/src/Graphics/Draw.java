@@ -12,14 +12,15 @@ public class Draw extends JPanel{
 	
 	Circle c1;
 	Cross cr1;
-	Circle c2;
-	Cross cr2;
+	int choose;
+	
 	
 	
 	public Draw(Circle c, Cross cr, int counter) {
 		
 			this.c1 = c;
 			this.cr1 = cr;
+			this.choose = counter;
 	}
 	
 	// Die Idee hier war, dass durch den Counter verschiedene Kreise und Kreuze gezeichnet werden können
@@ -33,7 +34,11 @@ public class Draw extends JPanel{
 		super.paintComponent(g);
 		
 		Graphics2D g2 = (Graphics2D) g;
-		g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);
-		g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(), this);
+		if (choose % 2 == 0) {
+			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(), this);
+			}
+		if (choose % 2 == 1) {
+			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);
+			}
 	}
 }
