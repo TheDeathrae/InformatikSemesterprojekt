@@ -8,8 +8,6 @@ import javax.swing.*;
 
 import Components.*;
 
-//aänderungs kommentar
-
 public class Draw extends JPanel{
 	
 	Circle c1;
