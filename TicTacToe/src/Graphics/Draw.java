@@ -35,7 +35,7 @@ public class Draw extends JPanel{
 		
 		Graphics2D g2 = (Graphics2D) g;
 		if (choose % 2 == 0) {
-			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(), this);
+			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),120, 120, this);
 			}
 		if (choose % 2 == 1) {
 			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);

@@ -22,8 +22,10 @@ public class Frame extends JFrame{
 		setTitle("Tic Tac Toe ");
 		setBounds(0, 0, Toolkit.getDefaultToolkit().getScreenSize().width , (Toolkit.getDefaultToolkit().getScreenSize().height - 30));
 		add(new Draw(c1, cr1, 0));
+		add(new Draw(c1, cr1, 1));
 		
 		setVisible(true);
+	
 		
 		addMouseListener(new MouseListener() {
 
@@ -70,7 +72,7 @@ public class Frame extends JFrame{
 			}
 			
 		});
+	
 	}
-	 
 	
 }
