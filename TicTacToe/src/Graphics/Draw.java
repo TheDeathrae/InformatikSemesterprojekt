@@ -12,34 +12,115 @@ public class Draw extends JPanel{
 	
 	Circle c1;
 	Cross cr1;
-	int choose;
+	Circle c2;
+	Cross cr2;
+	Circle c3;
+	Cross cr3;
+	Circle c4;
+	Cross cr4;
+	Circle c5;
+	Cross cr5;
 	
 	
 	
-	public Draw(Circle c, Cross cr, int counter) {
+	int boardSize = 600; //  durch 3 teilbar legt Höhe und Breite in Pixeln fest
+	int positionBoardX = 650; //obere linke Ecke
+	int positionBoardY = 200;
+	
+	public Draw(Circle c, Cross cr, Circle c2, Cross cr2, Circle c3, Cross cr3, Circle c4, Cross cr4, Circle c5, Cross cr5) {
 		
 			this.c1 = c;
 			this.cr1 = cr;
-			this.choose = counter;
+			this.c2 = c2;
+			this.cr2 = cr2;
+			this.c3 = c3;
+			this.cr3 = cr3;
+			this.c4 = c4;
+			this.cr4 = cr4;
+			this.c5 = c5;
+			this.cr5 = cr5;
+			
+			
 	}
 	
-	// Die Idee hier war, dass durch den Counter verschiedene Kreise und Kreuze gezeichnet werden können
-	// Hat aber nicht funktioniert, da PaintComponent sich nur auf ein Objekt bezieht
-	// Eine andere Idee wäre, dass Kreise und Kreuze in ihrem Konstruktor gezeichnet werden, aber wenn man
-	// paintComponent rüberkopiert und Circle von JPanel erben lässt ergeben sich immer noch Fehler
-	
-	
+
 	@Override
 	protected void paintComponent( Graphics g ) {
 		super.paintComponent(g);
-		
 		Graphics2D g2 = (Graphics2D) g;
 		
-		if (choose % 2 == 0) {
+		g2.drawImage(Images.a1, positionBoardX, positionBoardY, boardSize/3, boardSize/3, this);
+		g2.drawImage(Images.a2, positionBoardX + boardSize/3, positionBoardY, boardSize/3, boardSize/3, this);
+		g2.drawImage(Images.a3, positionBoardX + boardSize/3*2, positionBoardY, boardSize/3, boardSize/3, this);
+		g2.drawImage(Images.b1, positionBoardX, positionBoardY + boardSize/3, boardSize/3, boardSize/3, this);
+		g2.drawImage(Images.b2, positionBoardX + boardSize/3, positionBoardY + boardSize/3, boardSize/3, boardSize/3, this);
+		g2.drawImage(Images.b3, positionBoardX + boardSize/3*2, positionBoardY + boardSize/3, boardSize/3, boardSize/3, this);
+		g2.drawImage(Images.c1, positionBoardX, positionBoardY + boardSize/3*2, boardSize/3, boardSize/3, this);
+		g2.drawImage(Images.c2, positionBoardX + boardSize/3, positionBoardY + boardSize/3*2, boardSize/3, boardSize/3, this);
+		g2.drawImage(Images.c3, positionBoardX + boardSize/3*2, positionBoardY + boardSize/3*2, boardSize/3, boardSize/3, this);
+		
+		if (Frame.counter == 1) {
 			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),120, 120, this);
 			}
-		if (choose % 2 == 1) {
+		if (Frame.counter == 2) {
+			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),120, 120, this);
 			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);
+			}
+		if (Frame.counter == 3) {
+			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),120, 120, this);
+			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), 120, 120, this);
+			}
+		if (Frame.counter == 4) {
+			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),120, 120, this);
+			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c2.get_x(), c2.get_y(), 120, 120, this);
+			}
+		if (Frame.counter == 5) {
+			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),120, 120, this);
+			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c2.get_x(), c2.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr3.get_x(), cr3.get_y(), 120, 120, this);
+			}
+		if (Frame.counter == 6) {
+			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),120, 120, this);
+			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c2.get_x(), c2.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr3.get_x(), cr3.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c3.get_x(), c3.get_y(), 120, 120, this);
+			}
+		if (Frame.counter == 7) {
+			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),120, 120, this);
+			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c2.get_x(), c2.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr3.get_x(), cr3.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c3.get_x(), c3.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr4.get_x(), cr4.get_y(), 120, 120, this);
+			}
+		if (Frame.counter == 8) {
+			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),120, 120, this);
+			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c2.get_x(), c2.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr3.get_x(), cr3.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c3.get_x(), c3.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr4.get_x(), cr4.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c4.get_x(), c4.get_y(), 120, 120, this);
+			}
+		if (Frame.counter == 9) {
+			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),120, 120, this);
+			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c2.get_x(), c2.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr3.get_x(), cr3.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c3.get_x(), c3.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr4.get_x(), cr4.get_y(), 120, 120, this);
+			g2.drawImage(Images.circle, c4.get_x(), c4.get_y(), 120, 120, this);
+			g2.drawImage(Images.cross, cr5.get_x(), cr5.get_y(), 120, 120, this);
 			}
 	}
 }
