@@ -1,10 +1,12 @@
 package Graphics;
 
 import java.awt.Toolkit;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import Components.*;
 
@@ -23,6 +25,61 @@ public class Frame extends JFrame{
 	public static int counter = 0;
 	
 	
+	boolean inFrameX(int i) {
+		if (i >= Draw.getPositionBoardX() && i < (Draw.getPositionBoardX() + Draw.getBoardSize())){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	boolean inFrameY(int i) {
+		if (i >= Draw.getPositionBoardY() && i < (Draw.getPositionBoardY() + Draw.getBoardSize()*1.05)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	void setzeSpalteKreuz(int i, Cross cr) {
+		if(i < (Draw.getPositionBoardX() + Draw.getBoardSize()/3)) {
+			cr.setSpalte(1);
+		}
+		else if (i < (Draw.getPositionBoardX() + (Draw.getBoardSize()/3)*2)) {
+			cr.setSpalte(2);
+		} else {
+			cr.setSpalte(3);
+		}
+	}
+	void setzeSpalteKreis(int i, Circle c) {
+		if(i < (Draw.getPositionBoardX() + Draw.getBoardSize()/3)) {
+			c.setSpalte(1);
+		}
+		else if (i < (Draw.getPositionBoardX() + (Draw.getBoardSize()/3)*2)) {
+			c.setSpalte(2);
+		} else {
+			c.setSpalte(3);
+		}
+	}
+	void setzeReiheKreuz(int i, Cross cr) {
+		if(i < (Draw.getPositionBoardY() + (Draw.getBoardSize()*1.05)/3)) {
+			cr.setReihe(1);
+		}
+		else if (i < (Draw.getPositionBoardY() + ((Draw.getBoardSize()*1.05)/3)*2)) {
+			cr.setReihe(2);
+		} else {
+			cr.setReihe(3);
+		}
+	}
+	void setzeReiheKreis(int i, Circle c) {
+		if(i < (Draw.getPositionBoardY() + (Draw.getBoardSize()*1.05)/3)) {
+			c.setReihe(1);
+		}
+		else if (i < (Draw.getPositionBoardY() + ((Draw.getBoardSize()*1.05)/3)*2)) {
+			c.setReihe(2);
+		} else {
+			c.setReihe(3);
+		}
+	}
+	
 	public Frame() {
 		
 		setResizable(true);
@@ -38,52 +95,77 @@ public class Frame extends JFrame{
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				if (counter == 0) {
-					cr1.set_x(arg0.getX());
-					cr1.set_y(arg0.getY());
-					counter++; 
+				
+				int x = arg0.getX();
+				int y = arg0.getY();
+				
+				if (inFrameX(arg0.getX()) && inFrameY(arg0.getY())) {
+					if (counter == 0) {
+						setzeSpalteKreuz(x, cr1);
+						setzeReiheKreuz(y, cr1);
+						Cross.spalteToKoordinate(cr1);
+						Cross.reiheToKoordinate(cr1);
+						
+						counter++; 
+					}
+					else if (counter == 1){
+						setzeSpalteKreis(x, c1);
+						setzeReiheKreis(y, c1);
+						Circle.spalteToKoordinate(c1);
+						Circle.reiheToKoordinate(c1);
+						counter++; 
+					}
+					else if (counter == 2){
+						setzeSpalteKreuz(x, cr2);
+						setzeReiheKreuz(y, cr2);
+						Cross.spalteToKoordinate(cr2);
+						Cross.reiheToKoordinate(cr2);
+						counter++; 
+					}
+					else if (counter == 3){
+						setzeSpalteKreis(x, c2);
+						setzeReiheKreis(y, c2);
+						Circle.spalteToKoordinate(c2);
+						Circle.reiheToKoordinate(c2);
+						counter++; 
+					}
+					else if (counter == 4){
+						setzeSpalteKreuz(x, cr3);
+						setzeReiheKreuz(y, cr3);
+						Cross.spalteToKoordinate(cr3);
+						Cross.reiheToKoordinate(cr3);
+						counter++; 
+					}
+					else if (counter == 5){
+						setzeSpalteKreis(x, c3);
+						setzeReiheKreis(y, c3);
+						Circle.spalteToKoordinate(c3);
+						Circle.reiheToKoordinate(c3);
+						counter++; 
+					}
+					else if (counter == 6){
+						setzeSpalteKreuz(x, cr4);
+						setzeReiheKreuz(y, cr4);
+						Cross.spalteToKoordinate(cr4);
+						Cross.reiheToKoordinate(cr4);
+						counter++; 
+					}
+					else if (counter == 7){
+						setzeSpalteKreis(x, c4);
+						setzeReiheKreis(y, c4);
+						Circle.spalteToKoordinate(c4);
+						Circle.reiheToKoordinate(c4);
+						counter++; 
+					}
+					else if (counter == 8){
+						setzeSpalteKreuz(x, cr5);
+						setzeReiheKreuz(y, cr5);
+						Cross.spalteToKoordinate(cr5);
+						Cross.reiheToKoordinate(cr5);
+						counter++; 
+					}
+					repaint();
 				}
-				else if (counter == 1){
-					c1.set_x(arg0.getX());
-					c1.set_y(arg0.getY());
-					counter++; 
-				}
-				else if (counter == 2){
-					cr2.set_x(arg0.getX());
-					cr2.set_y(arg0.getY());
-					counter++; 
-				}
-				else if (counter == 3){
-					c2.set_x(arg0.getX());
-					c2.set_y(arg0.getY());
-					counter++; 
-				}
-				else if (counter == 4){
-					cr3.set_x(arg0.getX());
-					cr3.set_y(arg0.getY());
-					counter++; 
-				}
-				else if (counter == 5){
-					c3.set_x(arg0.getX());
-					c3.set_y(arg0.getY());
-					counter++; 
-				}
-				else if (counter == 6){
-					cr4.set_x(arg0.getX());
-					cr4.set_y(arg0.getY());
-					counter++; 
-				}
-				else if (counter == 7){
-					c4.set_x(arg0.getX());
-					c4.set_y(arg0.getY());
-					counter++; 
-				}
-				else if (counter == 8){
-					cr5.set_x(arg0.getX());
-					cr5.set_y(arg0.getY());
-					counter++; 
-				}
-				repaint();
 			}
 
 			@Override
