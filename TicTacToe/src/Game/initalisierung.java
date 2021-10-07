@@ -3,7 +3,7 @@ package Game;
 public class initalisierung {
    
 	boolean zugMoeglich;
-    static boolean gewonnen;
+    static boolean gewonnen = false;
     int spieler = 1;
     public static int feld[] = new int[9];
     //click feld
