@@ -1,8 +1,8 @@
 package Game;
 
-
 public class initalisierung {
-    boolean zugMoeglich;
+   
+	boolean zugMoeglich;
     static boolean gewonnen;
     int spieler = 1;
     int feld[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};

@@ -6,7 +6,7 @@ import javax.swing.*;
 import Graphics.FrameTicTacToe;
 import Graphics.Images;
 
-public class frame extends JFrame implements ActionListener { // wir können auf JFrame zugreifen 
+public class Frame extends JFrame implements ActionListener { // wir können auf JFrame zugreifen 
 
 		private JButton TicTacToe; 
 		private JButton Mühle;
@@ -15,7 +15,7 @@ public class frame extends JFrame implements ActionListener { // wir können auf 
 	
 	public static void main(String[] args) {
 		
-		frame frame = new frame("Menü");
+		Frame frame = new Frame("Menü");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize (400,400); 
 		
@@ -24,7 +24,7 @@ public class frame extends JFrame implements ActionListener { // wir können auf 
 		frame.setVisible(true); 
 	}
 	
-	public frame(String title) { // Buttons werden erstellt 
+	public Frame(String title) { // Buttons werden erstellt 
 		super(title);
 		
 		TicTacToe = new JButton("TicTacToe starten");

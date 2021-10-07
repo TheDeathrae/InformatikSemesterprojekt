@@ -1,6 +1,8 @@
 package Game;
+
 public class gewinnen extends initalisierung {
-    static boolean gewinnPruefen(int feld[], int spieler) {
+    
+	static boolean gewinnPruefen(int feld[], int spieler) {
         for (int i = 0; i < 7; i += 3) { //horizontal gewonnen
             if (feld[i] == feld[i + 1] && feld[i + 1] == feld[i + 2] && feld[i] == spieler && spieler != 0) {
                 gewonnen = true;
