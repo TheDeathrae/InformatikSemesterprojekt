@@ -10,6 +10,7 @@ public class zug extends initalisierung {
     }
 
     public boolean setzen(int[] feld, int zugSpieler, int zug) {
+    	System.out.println(zug);
         if (feldFrei(feld, zug)) {
             feld[zug] = zugSpieler;
             if (zugSpieler == 1) {
