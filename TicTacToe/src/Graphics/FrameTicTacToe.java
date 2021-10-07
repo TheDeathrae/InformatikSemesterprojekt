@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import Components.*;
+import Game.initalisierung;
+import Game.zug;
 
 public class FrameTicTacToe extends JFrame{
 
@@ -23,8 +25,9 @@ public class FrameTicTacToe extends JFrame{
 	Circle c5 = new Circle(0,0);
 	Cross cr5 = new Cross(0,0);
 	public static int counter = 0;
-	
-	
+
+	zug zug = new zug();
+
 	boolean inFrameX(int i) {
 		if (i >= Draw.getPositionBoardX() && i < (Draw.getPositionBoardX() + Draw.getBoardSize())){
 			return true;
@@ -105,6 +108,8 @@ public class FrameTicTacToe extends JFrame{
 						setzeReiheKreuz(y, cr1);
 						Cross.spalteToKoordinate(cr1);
 						Cross.reiheToKoordinate(cr1);
+					
+						zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr1.getReihe()-1)*3 + cr1.getSpalte())-1);
 						
 						counter++; 
 					}
@@ -113,6 +118,9 @@ public class FrameTicTacToe extends JFrame{
 						setzeReiheKreis(y, c1);
 						Circle.spalteToKoordinate(c1);
 						Circle.reiheToKoordinate(c1);
+						
+						zug.setzen(initalisierung.feld, (counter % 2) + 1,((c1.getReihe()-1)*3 + c1.getSpalte())-1);
+						
 						counter++; 
 					}
 					else if (counter == 2){
@@ -120,6 +128,9 @@ public class FrameTicTacToe extends JFrame{
 						setzeReiheKreuz(y, cr2);
 						Cross.spalteToKoordinate(cr2);
 						Cross.reiheToKoordinate(cr2);
+						
+						zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr2.getReihe()-1)*3 + cr2.getSpalte())-1);
+						
 						counter++; 
 					}
 					else if (counter == 3){
@@ -127,6 +138,9 @@ public class FrameTicTacToe extends JFrame{
 						setzeReiheKreis(y, c2);
 						Circle.spalteToKoordinate(c2);
 						Circle.reiheToKoordinate(c2);
+						
+						zug.setzen(initalisierung.feld, (counter % 2) + 1,((c2.getReihe()-1)*3 + c2.getSpalte())-1);
+						
 						counter++; 
 					}
 					else if (counter == 4){
@@ -134,6 +148,9 @@ public class FrameTicTacToe extends JFrame{
 						setzeReiheKreuz(y, cr3);
 						Cross.spalteToKoordinate(cr3);
 						Cross.reiheToKoordinate(cr3);
+						
+						zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr3.getReihe()-1)*3 + cr3.getSpalte())-1);
+						
 						counter++; 
 					}
 					else if (counter == 5){
@@ -141,6 +158,9 @@ public class FrameTicTacToe extends JFrame{
 						setzeReiheKreis(y, c3);
 						Circle.spalteToKoordinate(c3);
 						Circle.reiheToKoordinate(c3);
+						
+						zug.setzen(initalisierung.feld, (counter % 2) + 1,((c3.getReihe()-1)*3 + c3.getSpalte())-1);
+						
 						counter++; 
 					}
 					else if (counter == 6){
@@ -148,6 +168,9 @@ public class FrameTicTacToe extends JFrame{
 						setzeReiheKreuz(y, cr4);
 						Cross.spalteToKoordinate(cr4);
 						Cross.reiheToKoordinate(cr4);
+						
+						zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr4.getReihe()-1)*3 + cr4.getSpalte())-1);
+						
 						counter++; 
 					}
 					else if (counter == 7){
@@ -155,6 +178,9 @@ public class FrameTicTacToe extends JFrame{
 						setzeReiheKreis(y, c4);
 						Circle.spalteToKoordinate(c4);
 						Circle.reiheToKoordinate(c4);
+						
+						zug.setzen(initalisierung.feld, (counter % 2) + 1,((c4.getReihe()-1)*3 + c4.getSpalte())-1);
+						
 						counter++; 
 					}
 					else if (counter == 8){
@@ -162,6 +188,9 @@ public class FrameTicTacToe extends JFrame{
 						setzeReiheKreuz(y, cr5);
 						Cross.spalteToKoordinate(cr5);
 						Cross.reiheToKoordinate(cr5);
+						
+						zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr5.getReihe()-1)*3 + cr5.getSpalte())-1);
+						
 						counter++; 
 					}
 					repaint();
