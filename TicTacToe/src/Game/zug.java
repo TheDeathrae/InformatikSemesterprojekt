@@ -6,21 +6,27 @@ public class zug extends initalisierung {
         if (feld[zug] == 0) {
             zugMoeglich = true;
         }
+        else {
+        	zugMoeglich = false;
+        }
         return zugMoeglich;
     }
 
-    public boolean setzen(int[] feld, int zugSpieler, int zug) {
+    public boolean setzen(int zugSpieler, int zug) {
     	System.out.println(zug);
-        if (feldFrei(feld, zug)) {
+    	System.out.println("");
+    	System.out.println(zugSpieler);
+        System.out.println("");
+     
+    	if (feldFrei(feld, zug)) {
             feld[zug] = zugSpieler;
-            if (zugSpieler == 1) {
-                spieler = 2;
-            } else {
-                spieler = 1;
+            for (int i = 0; i < 9; i++) {
+            	System.out.println(feld[i]);
             }
-            
+            System.out.println("");
             return true;
         }
+    	
        return false;
     }
 }
