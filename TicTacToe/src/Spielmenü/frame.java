@@ -66,7 +66,7 @@ public class frame extends JFrame implements ActionListener { // wir können auf 
 			System.exit(0); 
 		}
 		
-
+//ändern 
 	}
 	
 	public static void Tfenster() {
