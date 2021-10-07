@@ -1,3 +1,6 @@
+package Game;
+
+
 public class zug extends initalisierung {
     boolean feldFrei(int feld[], int zug) {
         if (feld[zug] == 0) {

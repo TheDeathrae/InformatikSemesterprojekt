@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 
 import Components.*;
 
-public class Frame extends JFrame{
+public class FrameTicTacToe extends JFrame{
 
 	Circle c1 = new Circle(0,0);
 	Cross cr1 = new Cross(0,0);
@@ -80,7 +80,7 @@ public class Frame extends JFrame{
 		}
 	}
 	
-	public Frame() {
+	public FrameTicTacToe() {
 		
 		setResizable(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

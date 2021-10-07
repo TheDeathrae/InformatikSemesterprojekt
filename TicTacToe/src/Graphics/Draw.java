@@ -69,32 +69,32 @@ public class Draw extends JPanel{
 		
 		int f = (int)(boardSize/3*0.6); //passt Größe des Bildes an Feld an
 		
-		if (Frame.counter == 1) {
+		if (FrameTicTacToe.counter == 1) {
 			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),f ,f , this);
 			}
-		if (Frame.counter == 2) {
+		if (FrameTicTacToe.counter == 2) {
 			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),f ,f , this);
 			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), f, f, this);
 			}
-		if (Frame.counter == 3) {
+		if (FrameTicTacToe.counter == 3) {
 			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),f ,f , this);
 			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), f, f, this);
 			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), f, f, this);
 			}
-		if (Frame.counter == 4) {
+		if (FrameTicTacToe.counter == 4) {
 			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),f ,f , this);
 			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), f, f, this);
 			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), f, f, this);
 			g2.drawImage(Images.circle, c2.get_x(), c2.get_y(), f, f, this);
 			}
-		if (Frame.counter == 5) {
+		if (FrameTicTacToe.counter == 5) {
 			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),f ,f , this);
 			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), f, f, this);
 			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), f, f, this);
 			g2.drawImage(Images.circle, c2.get_x(), c2.get_y(), f, f, this);
 			g2.drawImage(Images.cross, cr3.get_x(), cr3.get_y(), f, f, this);
 			}
-		if (Frame.counter == 6) {
+		if (FrameTicTacToe.counter == 6) {
 			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),f ,f , this);
 			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), f, f, this);
 			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), f, f, this);
@@ -102,7 +102,7 @@ public class Draw extends JPanel{
 			g2.drawImage(Images.cross, cr3.get_x(), cr3.get_y(), f, f, this);
 			g2.drawImage(Images.circle, c3.get_x(), c3.get_y(), f, f, this);
 			}
-		if (Frame.counter == 7) {
+		if (FrameTicTacToe.counter == 7) {
 			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),f ,f , this);
 			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), f, f, this);
 			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), f, f, this);
@@ -111,7 +111,7 @@ public class Draw extends JPanel{
 			g2.drawImage(Images.circle, c3.get_x(), c3.get_y(), f, f, this);
 			g2.drawImage(Images.cross, cr4.get_x(), cr4.get_y(), f, f, this);
 			}
-		if (Frame.counter == 8) {
+		if (FrameTicTacToe.counter == 8) {
 			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),f ,f , this);
 			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), f, f, this);
 			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), f, f, this);
@@ -121,7 +121,7 @@ public class Draw extends JPanel{
 			g2.drawImage(Images.cross, cr4.get_x(), cr4.get_y(), f, f, this);
 			g2.drawImage(Images.circle, c4.get_x(), c4.get_y(), f, f, this);
 			}
-		if (Frame.counter == 9) {
+		if (FrameTicTacToe.counter == 9) {
 			g2.drawImage(Images.cross, cr1.get_x(), cr1.get_y(),f ,f , this);
 			g2.drawImage(Images.circle, c1.get_x(), c1.get_y(), f, f, this);
 			g2.drawImage(Images.cross, cr2.get_x(), cr2.get_y(), f, f, this);

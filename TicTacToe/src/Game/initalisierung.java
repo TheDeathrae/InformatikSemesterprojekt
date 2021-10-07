@@ -1,3 +1,6 @@
+package Game;
+
+
 public class initalisierung {
     boolean zugMoeglich;
     static boolean gewonnen;
