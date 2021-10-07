@@ -9,7 +9,7 @@ public class zug extends initalisierung {
         return zugMoeglich;
     }
 
-    public int[] setzen(int[] feld, int zugSpieler, int zug) {
+    public boolean setzen(int[] feld, int zugSpieler, int zug) {
         if (feldFrei(feld, zug)) {
             feld[zug] = zugSpieler;
             if (zugSpieler == 1) {
@@ -17,9 +17,9 @@ public class zug extends initalisierung {
             } else {
                 spieler = 1;
             }
-        } else {
-            //Zug nicht möglich
+            
+            return true;
         }
-        return feld;
+       return false;
     }
 }

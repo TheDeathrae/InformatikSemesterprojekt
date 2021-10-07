@@ -104,94 +104,94 @@ public class FrameTicTacToe extends JFrame{
 				
 				if (inFrameX(arg0.getX()) && inFrameY(arg0.getY())) {
 					if (counter == 0) {
-						setzeSpalteKreuz(x, cr1);
-						setzeReiheKreuz(y, cr1);
-						Cross.spalteToKoordinate(cr1);
-						Cross.reiheToKoordinate(cr1);
-					
-						zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr1.getReihe()-1)*3 + cr1.getSpalte())-1);
-						
-						counter++; 
+						if(zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr1.getReihe()-1)*3 + cr1.getSpalte())-1)) {
+							setzeSpalteKreuz(x, cr1);
+							setzeReiheKreuz(y, cr1);
+							Cross.spalteToKoordinate(cr1);
+							Cross.reiheToKoordinate(cr1);
+							
+							counter++; 
+						}
 					}
 					else if (counter == 1){
-						setzeSpalteKreis(x, c1);
-						setzeReiheKreis(y, c1);
-						Circle.spalteToKoordinate(c1);
-						Circle.reiheToKoordinate(c1);
-						
-						zug.setzen(initalisierung.feld, (counter % 2) + 1,((c1.getReihe()-1)*3 + c1.getSpalte())-1);
-						
-						counter++; 
+						if(zug.setzen(initalisierung.feld, (counter % 2) + 1,((c1.getReihe()-1)*3 + c1.getSpalte())-1)) {
+							setzeSpalteKreis(x, c1);
+							setzeReiheKreis(y, c1);
+							Circle.spalteToKoordinate(c1);
+							Circle.reiheToKoordinate(c1);
+							
+							counter++; 
+						}
 					}
 					else if (counter == 2){
-						setzeSpalteKreuz(x, cr2);
-						setzeReiheKreuz(y, cr2);
-						Cross.spalteToKoordinate(cr2);
-						Cross.reiheToKoordinate(cr2);
-						
-						zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr2.getReihe()-1)*3 + cr2.getSpalte())-1);
-						
-						counter++; 
+						if(zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr2.getReihe()-1)*3 + cr2.getSpalte())-1)) {
+							setzeSpalteKreuz(x, cr2);
+							setzeReiheKreuz(y, cr2);
+							Cross.spalteToKoordinate(cr2);
+							Cross.reiheToKoordinate(cr2);
+							
+							counter++; 
+						}
 					}
 					else if (counter == 3){
-						setzeSpalteKreis(x, c2);
-						setzeReiheKreis(y, c2);
-						Circle.spalteToKoordinate(c2);
-						Circle.reiheToKoordinate(c2);
-						
-						zug.setzen(initalisierung.feld, (counter % 2) + 1,((c2.getReihe()-1)*3 + c2.getSpalte())-1);
-						
-						counter++; 
+						if(zug.setzen(initalisierung.feld, (counter % 2) + 1,((c2.getReihe()-1)*3 + c2.getSpalte())-1)) {
+							setzeSpalteKreis(x, c2);
+							setzeReiheKreis(y, c2);
+							Circle.spalteToKoordinate(c2);
+							Circle.reiheToKoordinate(c2);
+							
+							counter++; 
+						}
 					}
 					else if (counter == 4){
-						setzeSpalteKreuz(x, cr3);
-						setzeReiheKreuz(y, cr3);
-						Cross.spalteToKoordinate(cr3);
-						Cross.reiheToKoordinate(cr3);
-						
-						zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr3.getReihe()-1)*3 + cr3.getSpalte())-1);
-						
-						counter++; 
+						if(zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr3.getReihe()-1)*3 + cr3.getSpalte())-1)) {
+							setzeSpalteKreuz(x, cr3);
+							setzeReiheKreuz(y, cr3);
+							Cross.spalteToKoordinate(cr3);
+							Cross.reiheToKoordinate(cr3);
+							
+							counter++; 
+						}
 					}
 					else if (counter == 5){
-						setzeSpalteKreis(x, c3);
-						setzeReiheKreis(y, c3);
-						Circle.spalteToKoordinate(c3);
-						Circle.reiheToKoordinate(c3);
-						
-						zug.setzen(initalisierung.feld, (counter % 2) + 1,((c3.getReihe()-1)*3 + c3.getSpalte())-1);
-						
-						counter++; 
+						if(zug.setzen(initalisierung.feld, (counter % 2) + 1,((c3.getReihe()-1)*3 + c3.getSpalte())-1)) {
+							setzeSpalteKreis(x, c3);
+							setzeReiheKreis(y, c3);
+							Circle.spalteToKoordinate(c3);
+							Circle.reiheToKoordinate(c3);
+							
+							counter++; 
+						}
 					}
 					else if (counter == 6){
-						setzeSpalteKreuz(x, cr4);
-						setzeReiheKreuz(y, cr4);
-						Cross.spalteToKoordinate(cr4);
-						Cross.reiheToKoordinate(cr4);
-						
-						zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr4.getReihe()-1)*3 + cr4.getSpalte())-1);
-						
-						counter++; 
+						if(zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr4.getReihe()-1)*3 + cr4.getSpalte())-1)) {
+							setzeSpalteKreuz(x, cr4);
+							setzeReiheKreuz(y, cr4);
+							Cross.spalteToKoordinate(cr4);
+							Cross.reiheToKoordinate(cr4);
+							
+							counter++; 
+						}
 					}
 					else if (counter == 7){
-						setzeSpalteKreis(x, c4);
-						setzeReiheKreis(y, c4);
-						Circle.spalteToKoordinate(c4);
-						Circle.reiheToKoordinate(c4);
-						
-						zug.setzen(initalisierung.feld, (counter % 2) + 1,((c4.getReihe()-1)*3 + c4.getSpalte())-1);
-						
-						counter++; 
+						if(zug.setzen(initalisierung.feld, (counter % 2) + 1,((c4.getReihe()-1)*3 + c4.getSpalte())-1)) {
+							setzeSpalteKreis(x, c4);
+							setzeReiheKreis(y, c4);
+							Circle.spalteToKoordinate(c4);
+							Circle.reiheToKoordinate(c4);
+							
+							counter++; 
+						}
 					}
-					else if (counter == 8){
-						setzeSpalteKreuz(x, cr5);
-						setzeReiheKreuz(y, cr5);
-						Cross.spalteToKoordinate(cr5);
-						Cross.reiheToKoordinate(cr5);
-						
-						zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr5.getReihe()-1)*3 + cr5.getSpalte())-1);
-						
-						counter++; 
+					else if (counter == 8){ 
+						if(zug.setzen(initalisierung.feld, (counter % 2) + 1,((cr5.getReihe()-1)*3 + cr5.getSpalte())-1)) {
+							setzeSpalteKreuz(x, cr5);
+							setzeReiheKreuz(y, cr5);
+							Cross.spalteToKoordinate(cr5);
+							Cross.reiheToKoordinate(cr5);
+							
+							counter++; 
+						}
 					}
 					repaint();
 				}
