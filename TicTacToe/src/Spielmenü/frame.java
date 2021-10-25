@@ -1,4 +1,4 @@
-package Spielmenü;
+package Spielmenü; // Emil für dich 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -66,7 +66,7 @@ public class frame extends JFrame implements ActionListener { // wir können auf 
 			System.exit(0); 
 		}
 		
-//ändern 
+//ändern 2.0
 	}
 	
 	public static void Tfenster() {
