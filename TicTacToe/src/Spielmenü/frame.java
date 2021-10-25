@@ -1,4 +1,4 @@
-package Spielmenü; // Emil für dich 
+package Spielmenü;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;

@@ -24,7 +24,7 @@ public class gewinnen extends initalisierung {
             }
             for (int i = 0; i < 7; i ++){
                 if (i != 0){
-                    //patt
+                    System.out.println("Patt");
                 }
             }
             return gewonnen;
