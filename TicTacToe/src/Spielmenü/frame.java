@@ -1,5 +1,6 @@
 package Spielmenü;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
@@ -30,6 +31,9 @@ public class frame extends JFrame implements ActionListener { // wir können auf 
 		add(TicTacToe);
 		
 		Mühle = new JButton("Mühle starten");
+		Mühle.setBorder(null);
+		Mühle.setBorderPainted(false);
+		Mühle.setBackground(new Color(0,0,0,0));
 		Mühle.setBounds(120,120,160,40); // erste beiden Postion x,y die letzten beiden aktuelle Größe Breite und höhe 
 		Mühle.addActionListener(this);
 		add(Mühle);
