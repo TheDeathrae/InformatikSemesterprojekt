@@ -20,6 +20,7 @@ public class Images {
 	private static String imageC2;
 	private static String imageC3;
 	
+	
 	public static BufferedImage circle; 
 	public static BufferedImage cross;
 	public static BufferedImage a1;
@@ -31,6 +32,10 @@ public class Images {
 	public static BufferedImage c1;
 	public static BufferedImage c2;
 	public static BufferedImage c3;
+	
+	
+	
+
 	
 	public Images() {
 		
@@ -47,7 +52,6 @@ public class Images {
 		imageC3 = "src/Images/C3.png";
 		
 		
-		
 		try {
 			circle = ImageIO.read(new File(imageCircle));
 			cross = ImageIO.read(new File(imageCross));
@@ -60,6 +64,8 @@ public class Images {
 			c1 = ImageIO.read(new File(imageC1));
 			c2 = ImageIO.read(new File(imageC2));
 			c3 = ImageIO.read(new File(imageC3));
+			
+			
 			
 			
 		}
