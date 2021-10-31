@@ -20,6 +20,9 @@ public class Board {
 	public void setPositionen(int position, int wert) {
 		this.positionen[position] = wert;
 	}
+	public int[] getPositionen() {
+		return positionen;
+	}
 	public int getAnDerReihe() {
 		return anDerReihe;
 	}
@@ -217,6 +220,8 @@ public class Board {
 			
 		}
 	}
+
+
 	
 	
 	

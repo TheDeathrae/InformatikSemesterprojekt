@@ -1,5 +1,17 @@
 package menschAergereDichNicht2;
 
-public class Frame {
+import java.awt.Toolkit;
+
+import javax.swing.*;
+
+public class Frame extends JFrame {
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
