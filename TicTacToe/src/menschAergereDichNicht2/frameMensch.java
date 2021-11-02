@@ -18,6 +18,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import java.awt.Color;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 public class frameMensch extends Composite {
 
@@ -274,8 +275,9 @@ public class frameMensch extends Composite {
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		
-		Button btnEin = new Button(this, SWT.NONE);
-		btnEin.setText("ein");
+		Combo combo = new Combo(this, SWT.NONE);
+		combo.setItems(new String[] {"eins", "zwei", "drei", "vier"});
+		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		new Label(this, SWT.NONE);
 		
 		Button button_10 = new Button(this, SWT.NONE);
@@ -377,9 +379,7 @@ public class frameMensch extends Composite {
 		});
 		button_28.setText("28");
 		new Label(this, SWT.NONE);
-		
-		Button btnZwei = new Button(this, SWT.NONE);
-		btnZwei.setText("zwei");
+		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		
 		Button button_9 = new Button(this, SWT.NONE);
@@ -473,9 +473,7 @@ public class frameMensch extends Composite {
 		});
 		button_29.setText("29");
 		new Label(this, SWT.NONE);
-		
-		Button btnDrei = new Button(this, SWT.NONE);
-		btnDrei.setText("drei");
+		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		
 		Button button_8 = new Button(this, SWT.NONE);
@@ -577,9 +575,7 @@ public class frameMensch extends Composite {
 		});
 		button_30.setText("30");
 		new Label(this, SWT.NONE);
-		
-		Button btnVier = new Button(this, SWT.NONE);
-		btnVier.setText("vier");
+		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
@@ -751,6 +747,7 @@ public class frameMensch extends Composite {
 		new Label(this, SWT.NONE);
 		
 		Button button = new Button(this, SWT.NONE);
+		button.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		button.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -907,10 +904,20 @@ public class frameMensch extends Composite {
 		Color color;
 		for(int i=0; i <=71; i++) {
 			if(vorlage[i] == 1) {
+				color = Color.yellow;
+				// positionButtons[i].setBackground(color);			
+			} else if(vorlage[i] == 2) {
 				color = Color.red;
+				// positionButtons[i].setBackground(color);			
+			} else if(vorlage[i] == 3) {
+				color = Color.blue;
+				// positionButtons[i].setBackground(color);			
+			}else if(vorlage[i] == 4) {
+				color = Color.green;
 				// positionButtons[i].setBackground(color);			
 			}
 		}
+	
 		
 		
 	}
