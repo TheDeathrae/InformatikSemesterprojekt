@@ -908,7 +908,7 @@ public class frameMensch extends Composite {
 		for(int i=0; i <=71; i++) {
 			if(vorlage[i] == 1) {
 				color = Color.red;
-				// positionButtons[i].setBackground();
+				// positionButtons[i].setBackground(color);			
 			}
 		}
 		
