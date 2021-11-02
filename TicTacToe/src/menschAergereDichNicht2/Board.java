@@ -46,22 +46,22 @@ public class Board {
 		for (int i=0; i <= 72; i++) {
 			positionen[i] = 0;
 		}
-		if (spielerAnzahl <= 1) {
+		if (spielerAnzahl >= 1) {
 			for (int i=56; i <= 59; i++) {
 				positionen[i] = 1;
 			}
 		}
-		if (spielerAnzahl <= 2) {
+		if (spielerAnzahl >= 2) {
 			for (int i=60; i <= 63; i++) {
 				positionen[i] = 2;
 			}
 		}
-		if (spielerAnzahl <= 3) {
+		if (spielerAnzahl >= 3) {
 			for (int i=64; i <= 67; i++) {
 				positionen[i] = 3;
 			}
 		}
-		if (spielerAnzahl <= 4) {
+		if (spielerAnzahl >= 4) {
 			for (int i=68; i <= 71; i++) {
 				positionen[i] = 4;
 			}
@@ -220,15 +220,4 @@ public class Board {
 			
 		}
 	}
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
