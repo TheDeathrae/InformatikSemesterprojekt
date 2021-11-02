@@ -11,7 +11,7 @@ import javax.swing.*;
 
 
 
-public class frame extends JFrame implements ActionListener { // wir können auf JFrame zugreifen 
+public class Frame extends JFrame implements ActionListener { // wir können auf JFrame zugreifen 
 		private JButton TicTacToe; 
 		private JButton Mühle;
 		private JButton Dame;
@@ -22,7 +22,7 @@ public class frame extends JFrame implements ActionListener { // wir können auf 
 	
 	public static void main(String[] args) {
 		
-		frame frame = new frame("Menü");
+		Frame frame = new Frame("Menü");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize (1053,597); 
 		
@@ -31,7 +31,7 @@ public class frame extends JFrame implements ActionListener { // wir können auf 
 		frame.setVisible(true); 
 	}
 	
-	public frame(String title) { // Buttons werden erstellt 
+	public Frame(String title) { // Buttons werden erstellt 
 		super(title);
 		
 		JLabel background; 								//Label um Hintergrundbild einzufügen
