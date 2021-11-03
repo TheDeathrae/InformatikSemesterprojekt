@@ -379,7 +379,9 @@ public class frameMensch extends Composite {
 		});
 		button_28.setText("28");
 		new Label(this, SWT.NONE);
-		new Label(this, SWT.NONE);
+		
+		Button btnBesttigen = new Button(this, SWT.NONE);
+		btnBesttigen.setText("Best\u00E4tigen");
 		new Label(this, SWT.NONE);
 		
 		Button button_9 = new Button(this, SWT.NONE);
@@ -798,6 +800,8 @@ public class frameMensch extends Composite {
 		Button btnWrfeln = new Button(this, SWT.NONE);
 		btnWrfeln.setText("w\u00FCrfeln");
 		
+		
+		
 		positionButtons[0] = button;
 		positionButtons[1] = button_1;
 		positionButtons[2] = button_2;
@@ -870,6 +874,9 @@ public class frameMensch extends Composite {
 		positionButtons[69] = button_69;
 		positionButtons[70] = button_70;
 		positionButtons[71] = button_71;
+		
+		
+		
 	}
 
 	
@@ -916,9 +923,18 @@ public class frameMensch extends Composite {
 				color = Color.green;
 				// positionButtons[i].setBackground(color);			
 			}
-		}
+		}	
+	}
 	
-		
+	void playerSelectAction() {
+		// board.setSpielerAnzahl(combo.getSelectionIndex());
+	}
+	
+	void moveAction() {
+		int[] vorlage = board.getPositionen();
+		if (vorlage[positionSelected] == board.getAnDerReihe()) {
+			
+	}
 		
 	}
 	
