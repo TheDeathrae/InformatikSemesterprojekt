@@ -22,7 +22,7 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
 	
 	public static void main(String[] args) {
 		
-		Frame frame = new Frame("Men�");
+		Frame frame = new Frame("Menue");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize (1053,597); 
 		
@@ -38,7 +38,7 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
         setSize (1053, 597); 
         setLayout(null); 
      
-        ImageIcon img = new ImageIcon("src/Images/Spielmen�/ChfY8Bq_3x.png");
+        ImageIcon img = new ImageIcon("src/Images/Spielmenue/ChfY8Bq_3x.png");
 
         background = new JLabel("",img,JLabel.CENTER); 
         background.setBounds(0,0,1053,597);
@@ -60,7 +60,7 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
 		Dame.addActionListener(this);
 		add(Dame);
 		
-		ende = new JButton("Men� schlie�en");
+		ende = new JButton("Menue schliessen");
 		ende.setBounds(695,388,250,110); // erste beiden Postion x,y die letzten beiden aktuelle Gr��e Breite und h�he 
 		ende.setContentAreaFilled(false); //macht button unsichtbar
 		ende.addActionListener(this);
