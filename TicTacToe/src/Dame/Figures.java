@@ -6,8 +6,8 @@ public class Figures {
 	protected boolean color; 
 	protected int x; 
 	protected int y; 
-	protected boolean selected;
-	
+	protected boolean selected = false;
+	protected boolean beaten = false;
 	//Konstruktor für jedes objekt einer Spielfigur
 	public Figures(boolean color, int x, int y) {
 		this.color = color; 
@@ -27,6 +27,9 @@ public class Figures {
 	public boolean getSelected() {
 		return this.selected;
 	}
+	public boolean getBeaten() {
+		return this.beaten;
+	}
 	public void setX(int x) {
 		this.x = x;
 	}
@@ -35,6 +38,9 @@ public class Figures {
 	}
 	public void setSelected(boolean selected) {
 		this.selected = selected;
+	}
+	public void setBeaten(boolean beaten) {
+		this.beaten = beaten; 
 	}
 	//keine Settermehtode für color, da diese sich nicht ändert.
 	
@@ -49,7 +55,7 @@ public class Figures {
 			}
 		}
 		else {
-			if ((x == this.x + 1 || x == this.x - 1) && y ==this.y + 1) {
+			if ((x == this.x + 1 || x == this.x - 1) && y == this.y + 1) {
 				return true;
 			}
 			else {

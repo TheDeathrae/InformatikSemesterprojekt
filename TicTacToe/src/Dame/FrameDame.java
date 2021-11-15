@@ -6,23 +6,23 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
-import Components.Circle;
-import Components.Cross;
-
 public class FrameDame extends JFrame{
 	
 	//Objekt von gamelogik weil die logik auf aktionen im Frame reagieren
 	GameLogic gl = new GameLogic();
 	//Objekt vom Zeichner um maﬂe des Feldes zu kennen
-	Field fDame = new Field();
+			Field fDame = new Field(Toolkit.getDefaultToolkit().getScreenSize().width,
+					(Toolkit.getDefaultToolkit().getScreenSize().height - 30), gl);
 	
-	public FrameDame() {
+	FrameDame() {
 		setResizable(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Dame");
 		setBounds(0, 0, Toolkit.getDefaultToolkit().getScreenSize().width,
 				(Toolkit.getDefaultToolkit().getScreenSize().height - 30));
 		
+		gl.fillList();
+		add(fDame);
 		setVisible(true);
 		
 		addMouseListener(new MouseListener() {
@@ -31,7 +31,9 @@ public class FrameDame extends JFrame{
 			public void mouseClicked(MouseEvent arg0) {
 
 				int x = getXCoordinate(arg0.getX());
+				System.out.println(x);
 				int y = getYCoordinate(arg0.getY());
+				System.out.println(y);
 				
 				if(gl.chooseFigure(x, y)) {
 					if(gl.proofMove(x, y)) {
@@ -72,25 +74,25 @@ public class FrameDame extends JFrame{
 	}
 	
 	public int getXCoordinate(int x) {
-		if(x < (fDame.getBoardSize() / 8) + fDame.getPositionBoardX()) {
+		if(x < (fDame.getBoardSizeX() / 8) + fDame.getPositionBoardX()) {
 			return 0;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 2 + fDame.getPositionBoardX()) {
+		else if(x < (fDame.getBoardSizeX() / 8) * 2 + fDame.getPositionBoardX()) {
 			return 1;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 3 + fDame.getPositionBoardX()) {
+		else if(x < (fDame.getBoardSizeX() / 8) * 3 + fDame.getPositionBoardX()) {
 			return 2;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 4 + fDame.getPositionBoardX()) {
+		else if(x < (fDame.getBoardSizeX() / 8) * 4 + fDame.getPositionBoardX()) {
 			return 3;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 5 + fDame.getPositionBoardX()) {
+		else if(x < (fDame.getBoardSizeX() / 8) * 5 + fDame.getPositionBoardX()) {
 			return 4;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 6 + fDame.getPositionBoardX()) {
+		else if(x < (fDame.getBoardSizeX() / 8) * 6 + fDame.getPositionBoardX()) {
 			return 5;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 7 + fDame.getPositionBoardX()) {
+		else if(x < (fDame.getBoardSizeX() / 8) * 7 + fDame.getPositionBoardX()) {
 			return 6;
 		}
 		else {
@@ -99,31 +101,32 @@ public class FrameDame extends JFrame{
 		
 	}
 	public int getYCoordinate(int x) {
-		if(x < (fDame.getBoardSize() / 8) + fDame.getPositionBoardY()) {
+		if(x < (fDame.getBoardSizeY() / 8) + fDame.getPositionBoardY()) {
 			return 0;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 2 + fDame.getPositionBoardY()) {
+		else if(x < (fDame.getBoardSizeY() / 8) * 2 + fDame.getPositionBoardY()) {
 			return 1;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 3 + fDame.getPositionBoardY()) {
+		else if(x < (fDame.getBoardSizeY() / 8) * 3 + fDame.getPositionBoardY()) {
 			return 2;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 4 + fDame.getPositionBoardY()) {
+		else if(x < (fDame.getBoardSizeY() / 8) * 4 + fDame.getPositionBoardY()) {
 			return 3;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 5 + fDame.getPositionBoardY()) {
+		else if(x < (fDame.getBoardSizeY() / 8) * 5 + fDame.getPositionBoardY()) {
 			return 4;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 6 + fDame.getPositionBoardY()) {
+		else if(x < (fDame.getBoardSizeY() / 8) * 6 + fDame.getPositionBoardY()) {
 			return 5;
 		}
-		else if(x < (fDame.getBoardSize() / 8) * 7 + fDame.getPositionBoardY()) {
+		else if(x < (fDame.getBoardSizeY() / 8) * 7 + fDame.getPositionBoardY()) {
 			return 6;
 		}
 		else {
 			return 7;
 		}
-		
+				
 	}
+
 }
 
