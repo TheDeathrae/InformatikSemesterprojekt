@@ -21,11 +21,6 @@ public class Frame extends JFrame {
         return i >= DrawEngine.getPositionBoardX() && i < (DrawEngine.getPositionBoardX() + DrawEngine.getBoardSize());
     }
 
-    /**
-     * TODO: nicht außerhalb feldes zeichnen lassen
-     * @param i
-     * @return
-     */
     boolean inFrameY(int i) {
         return i >= DrawEngine.getPositionBoardY() && i < (DrawEngine.getPositionBoardY() + DrawEngine.getBoardSize());
     }
@@ -54,7 +49,7 @@ public class Frame extends JFrame {
                     // Zustand ändern
                     int feld_x = Math.floorDiv(x, (DrawEngine.boardSize / 3)) - 3;
                     int feld_y = Math.floorDiv(y, (DrawEngine.boardSize / 3)) - 1;
-                    zustand.setzen(feld_x + feld_y*3);
+                    zustand.setzen(feld_x + feld_y * 3);
                     // Zustand zeichnen
                     if (zustand.get_spielerAmZug() == 1) {
                         draw_engine.toDraw(new Cross(feld_x * (DrawEngine.boardSize / 3) + screenSize.width / 2 - DrawEngine.boardSize / 2, feld_y * (DrawEngine.boardSize / 3) + screenSize.height / 2 - DrawEngine.boardSize / 2));

@@ -33,23 +33,27 @@ public class Zustand {
 
     public int gewinnPruefen() {
         //horizontal gewonnen
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i= i + 3) {
             if (feld[i] == feld[i + 1] && feld[i + 1] == feld[i + 2] && feld[i] != 0) {
+                System.out.println("1");
                 return 1;
             }
         }
         //vertikal gewonnen
         for (int i = 0; i < 2; i++) {
             if (feld[i] == feld[i + 3] && feld[i + 3] == feld[i + 6] && feld[i] != 0) {
+                System.out.println("2");
                 return 1;
             }
         }
         //diagonal gewonnen
         if (feld[0] == feld[4] && feld[4] == feld[8] && feld[0] != 0){
+            System.out.println("3");
             return 1;
         }
         //diagonal gewonnen
         if (feld[2] == feld[4] && feld[4] == feld[6] && feld[2] != 0) {
+            System.out.println("4");
             return 1;
         }
         //noch nicht fertig

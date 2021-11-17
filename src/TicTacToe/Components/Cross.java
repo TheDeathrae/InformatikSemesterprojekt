@@ -8,6 +8,6 @@ public class Cross extends Drawable {
 
         Images a = new Images();
 
-        image = a.tempcross;
+        image = a.cross;
     }
 }

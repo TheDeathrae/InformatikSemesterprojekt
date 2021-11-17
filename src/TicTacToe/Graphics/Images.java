@@ -9,8 +9,7 @@ import javax.imageio.ImageIO;
 public class Images {
     public final static String imageCircle = "src/Images/TikTakToe/cricle.png";
     public final static String imageCross = "src/Images/TikTakToe/Cross.png";
-    public final static String imagetempcross = "src/Images/TikTakToe/tempcross.png";
-    public final static String imageWinScreen = "src/Images/TikTakToe/winScreen.png";
+    public final static String imageWinScreen = "src/Images/TikTakToe/winSymbol.png";
     private final static String imageA1 = "src/Images/TikTakToe/A1.png";;
     private final static String imageA2 = "src/Images/TikTakToe/A2.png";;
     private final static String imageA3 = "src/Images/TikTakToe/A3.png";;
@@ -24,7 +23,6 @@ public class Images {
 
     public BufferedImage circle;
     public BufferedImage cross;
-    public BufferedImage tempcross;
     public BufferedImage winScreen;
     public BufferedImage a1;
     public BufferedImage a2;
@@ -41,7 +39,6 @@ public class Images {
         try {
             circle = ImageIO.read(new File(imageCircle));
             cross = ImageIO.read(new File(imageCross));
-            tempcross = ImageIO.read(new File(imagetempcross));
             winScreen = ImageIO.read(new File(imageWinScreen));
             a1 = ImageIO.read(new File(imageA1));
             a2 = ImageIO.read(new File(imageA2));

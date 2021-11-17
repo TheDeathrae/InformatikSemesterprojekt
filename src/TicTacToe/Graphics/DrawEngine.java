@@ -9,11 +9,11 @@ import javax.swing.*;
 import TicTacToe.Components.*;
 
 public class DrawEngine extends JPanel {
-    private List<Drawable> drawables = new ArrayList<Drawable>();
+    private final List<Drawable> drawables = new ArrayList<Drawable>();
     public static int boardSize = 801; //  durch 3 teilbar legt Höhe und Breite in Pixeln fest
-    private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    private static int positionBoardX = screenSize.width / 2 - boardSize / 2; //obere linke Ecke
-    private static int positionBoardY = screenSize.height / 2 - boardSize / 2;
+    private static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private static final int positionBoardX = screenSize.width / 2 - boardSize / 2; //obere linke Ecke
+    private static final int positionBoardY = screenSize.height / 2 - boardSize / 2;
 
     public static int getBoardSize() {
         return boardSize;

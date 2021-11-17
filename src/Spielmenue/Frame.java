@@ -30,7 +30,7 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
         super(title);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds(screenSize.width/2 - backgoundWidth/2, (screenSize.height - 30)/2 - backgoundHeight/2, screenSize.width, (screenSize.height - 30));
+        setBounds(screenSize.width / 2 - backgoundWidth / 2, (screenSize.height - 30) / 2 - backgoundHeight / 2, screenSize.width, (screenSize.height - 30));
 
         JLabel background;                                //Label um Hintergrundbild einzufügen
         setSize(1053, 597);
@@ -48,7 +48,7 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
         TicTacToe.addActionListener(this);
         add(TicTacToe);
 
-        Muehle = new JButton(new ImageIcon("src/Images/Cross.png"));   //fügt Bild auf Button ein, fehlerhaft
+        Muehle = new JButton(new ImageIcon("src/Images/TikTakToe/Cross.png"));   //fügt Bild auf Button ein, fehlerhaft
         Muehle.setBounds(120, 120, 160, 40); // erste beiden Postion x,y die letzten beiden aktuelle Größe Breite und höhe
         Muehle.addActionListener(this);
         add(Muehle);
@@ -71,32 +71,22 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == TicTacToe) {
-            Tfenster();
+            TicTacToe.Graphics.Frame test;
+            test = new TicTacToe.Graphics.Frame();
         }
 
         if (e.getSource() == Muehle) {
-            Mfenster();
+            menschAergereDichNicht.FrameMensch temp;
+            temp = new menschAergereDichNicht.FrameMensch();
+
         }
 
         if (e.getSource() == Dame) {
-            Dfenster();
+
         }
 
         if (e.getSource() == ende) {
             System.exit(0);
         }
-    }
-
-    public static void Tfenster() {
-        TicTacToe.Graphics.Frame test;
-        test = new TicTacToe.Graphics.Frame();
-    }
-
-    public static void Mfenster() {
-
-    }
-
-    public static void Dfenster() {
-
     }
 }
