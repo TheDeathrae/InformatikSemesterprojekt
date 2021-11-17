@@ -15,7 +15,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.wb.swt.SWTResourceManager;
+import src.org.eclipse.wb.swt.SWTResourceManager;
 
 public class Mensch extends Composite {
 
