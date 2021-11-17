@@ -10,6 +10,7 @@ public class Images {
     public final static String imageCircle = "src/Images/TikTakToe/cricle.png";
     public final static String imageCross = "src/Images/TikTakToe/Cross.png";
     public final static String imageWinScreen = "src/Images/TikTakToe/winSymbol.png";
+    public final static String imageHintergrund = "src/Images/TikTakToe/Hintergrund.png";
     private final static String imageA1 = "src/Images/TikTakToe/A1.png";;
     private final static String imageA2 = "src/Images/TikTakToe/A2.png";;
     private final static String imageA3 = "src/Images/TikTakToe/A3.png";;
@@ -24,6 +25,7 @@ public class Images {
     public BufferedImage circle;
     public BufferedImage cross;
     public BufferedImage winScreen;
+    public BufferedImage hintergrund;
     public BufferedImage a1;
     public BufferedImage a2;
     public BufferedImage a3;
@@ -40,6 +42,7 @@ public class Images {
             circle = ImageIO.read(new File(imageCircle));
             cross = ImageIO.read(new File(imageCross));
             winScreen = ImageIO.read(new File(imageWinScreen));
+            hintergrund = ImageIO.read(new File(imageHintergrund));
             a1 = ImageIO.read(new File(imageA1));
             a2 = ImageIO.read(new File(imageA2));
             a3 = ImageIO.read(new File(imageA3));
