@@ -63,12 +63,12 @@ public class Spielzustand {
         return false;
     }
 
-    public boolean gewinnPruefen() {
+    public int gewinnPruefen() {
         for (int i = 0; i<24; i++){
             if(feld[i] != spielerAmZug){
-                return false;
+                return 1;
             }
         }
-        return true;
+        return 2;
     }
 }

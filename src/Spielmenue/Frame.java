@@ -76,8 +76,8 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
         }
 
         if (e.getSource() == Muehle) {
-            menschAergereDichNicht.FrameMensch temp;
-            temp = new menschAergereDichNicht.FrameMensch();
+            Muehle.Graphics.Frame temp;
+            temp = new Muehle.Graphics.Frame();
 
         }
 
