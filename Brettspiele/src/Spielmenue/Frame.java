@@ -1,13 +1,9 @@
 package Spielmenue;
 import java.awt.event.ActionEvent;
-import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.awt.*;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
+
 
 
 
@@ -38,7 +34,7 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
         setSize (1053, 597); 
         setLayout(null); 
      
-        ImageIcon img = new ImageIcon("src/Images/Spielmenue/ChfY8Bq_3x.png");
+        ImageIcon img = new ImageIcon("Images/MenschAergereDichNicht/Spielmenue/ChfY8Bq_3x.png");
 
         background = new JLabel("",img,JLabel.CENTER); 
         background.setBounds(0,0,1053,597);
@@ -50,7 +46,7 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
 		TicTacToe.addActionListener(this);
 		add(TicTacToe);
 		
-		Muehle = new JButton (new ImageIcon("src/Images/Cross.png"));   //f�gt Bild auf Button ein, fehlerhaft
+		Muehle = new JButton (new ImageIcon("Images/MenschAergereDichNicht/Cross.png"));   //f�gt Bild auf Button ein, fehlerhaft
 		Muehle.setBounds(120,120,160,40); // erste beiden Postion x,y die letzten beiden aktuelle Gr��e Breite und h�he
 		Muehle.addActionListener(this);
 		add(Muehle);
@@ -71,35 +67,21 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
 	
 
 	public void actionPerformed(ActionEvent e) {
-			
-		if (e.getSource()== TicTacToe ) {
-				Tfenster();
+
+		if (e.getSource() == TicTacToe) {
+
 		}
-		
-		if (e.getSource()== Muehle ) {
-			Mfenster(); 
+
+		if (e.getSource() == Muehle) {
+
 		}
-		
-		if (e.getSource()== Dame ) {
-			Dfenster(); 
+
+		if (e.getSource() == Dame) {
+
 		}
-		
-		if (e.getSource()== ende ) {
-			System.exit(0); 
+
+		if (e.getSource() == ende) {
+			System.exit(0);
 		}
-		
-//�ndern 2.0
-	}
-	
-	public static void Tfenster() {
-		
-	}
-	
-	public static void Mfenster() {
-		
-	}
-	
-	public static void Dfenster() {
-		
 	}
 }

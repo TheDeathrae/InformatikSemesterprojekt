@@ -3,7 +3,6 @@ package Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
@@ -39,17 +38,17 @@ public class Images {
 	
 	public Images() {
 		
-		imageCircle = "src/Images/cricle.png"; 
-		imageCross = "src/Images/Cross.png";
-		imageA1 = "src/Images/A1.png";
-		imageA2 = "src/Images/A2.png";
-		imageA3 = "src/Images/A3.png";
-		imageB1 = "src/Images/B1.png";
-		imageB2 = "src/Images/B2.png";
-		imageB3 = "src/Images/B3.png";
-		imageC1 = "src/Images/C1.png";
-		imageC2 = "src/Images/C2.png";
-		imageC3 = "src/Images/C3.png";
+		imageCircle = "Images/MenschAergereDichNicht/cricle.png";
+		imageCross = "Images/MenschAergereDichNicht/Cross.png";
+		imageA1 = "Images/MenschAergereDichNicht/A1.png";
+		imageA2 = "Images/MenschAergereDichNicht/A2.png";
+		imageA3 = "Images/MenschAergereDichNicht/A3.png";
+		imageB1 = "Images/MenschAergereDichNicht/B1.png";
+		imageB2 = "Images/MenschAergereDichNicht/B2.png";
+		imageB3 = "Images/MenschAergereDichNicht/B3.png";
+		imageC1 = "Images/MenschAergereDichNicht/C1.png";
+		imageC2 = "Images/MenschAergereDichNicht/C2.png";
+		imageC3 = "Images/MenschAergereDichNicht/C3.png";
 		
 		
 		try {
