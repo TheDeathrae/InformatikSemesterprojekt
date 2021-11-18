@@ -93,16 +93,22 @@ public class GameLogic {
 					System.out.println(figureList.get(i).getX());
 					System.out.println(figureList.get(i).getY());
 					//Figuren kommen aus vier möglichen Richtungen wo sie Schlagen können
-					if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() + 1)) {
-						System.out.println("Figur Schlagen möglich 1");
-						System.out.println("Da Feld " + figureList.get(i).getX() + " ; " + figureList.get(i).getY() + " frei");
-						//überprüfen ob das möbgliche x oder y auch dem ausgewählten entspricht
-						return true;
+					if (fig.getX() < figureList.get(i).getX() && fig.getY() < figureList.get(i).getY()) {
+						if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() + 1)) {
+							System.out.println("Figur Schlagen möglich 1");
+							System.out.println("Da Feld " + figureList.get(i).getX() + " ; " + figureList.get(i).getY() + " frei");
+							//überprüfen ob das möbgliche x oder y auch dem ausgewählten entspricht
+							return true;
+						}
+					
 					}
-					if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() - 1)) {
-						System.out.println("Figur Schlagen möglich 2");
-						return true;
+					else if (fig.getX() < figureList.get(i).getX() && fig.getY() > figureList.get(i).getY()) {
+						if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() - 1)) {
+							System.out.println("Figur Schlagen möglich 2");
+							return true;
+						}
 					}
+					
 					if (!proofOccupied(figureList.get(i).getX() - 1, figureList.get(i).getY() + 1)) {
 						System.out.println("Figur Schlagen möglich 3");
 						return true;
