@@ -1,21 +1,20 @@
 package menschAergereDichNicht;
 
 
+import java.awt.GridLayout;
+
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
-
-
-
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import src.org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.*;
+import org.eclipse.swt.*;
+
+
+import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.widgets.*;
+
 
 public class Mensch extends Composite {
 
@@ -32,7 +31,7 @@ public class Mensch extends Composite {
 	public Mensch(Composite parent, int style) {
 		
 		super(parent, style);
-		setLayout(new GridLayout(20, false));
+		//setLayout(new GridLayout(20, false));
 		
 		
 		
@@ -1171,7 +1170,7 @@ public class Mensch extends Composite {
 	public static void main(String[] args) {
 		Display display = new Display();
 		Shell shell = new Shell(display);
-		shell.setLayout(new GridLayout(1, false));	
+		//shell.setLayout(new GridLayout(1, false));	
 		
 		Mensch frame = new Mensch(shell, SWT.NONE);
 		
