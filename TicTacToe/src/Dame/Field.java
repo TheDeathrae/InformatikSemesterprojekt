@@ -51,8 +51,27 @@ public class Field extends JPanel{
 		g2.drawImage(dame.dame, 0, 0, width, height, this);
 		//einzelne Spielsteine
 		for (int i = 0; i < gl.figureList.size(); i++) {
-			g2.drawImage(dame.stein, positionBoardX + (gl.figureList.get(i).getX() * (boardSizeX / 8)), positionBoardY + (gl.figureList.get(i).getY() * (boardSizeY / 8)) - 27,
-					boardSizeX / 8, boardSizeY / 8, this);
+			if(gl.figureList.get(i).getColor()) {
+				if (gl.figureList.get(i).proofQueen()) {
+					g2.drawImage(dame.dSW, positionBoardX + (gl.figureList.get(i).getX() * (boardSizeX / 8)), positionBoardY + (gl.figureList.get(i).getY() * (boardSizeY / 8)) - 27,
+							boardSizeX / 8, boardSizeY / 8, this);
+				}
+				else {
+					g2.drawImage(dame.sW, positionBoardX + (gl.figureList.get(i).getX() * (boardSizeX / 8)), positionBoardY + (gl.figureList.get(i).getY() * (boardSizeY / 8)) - 27,
+							boardSizeX / 8, boardSizeY / 8, this);
+				}
+			}
+			else {
+				if (gl.figureList.get(i).proofQueen()) {
+					g2.drawImage(dame.dSS, positionBoardX + (gl.figureList.get(i).getX() * (boardSizeX / 8)), positionBoardY + (gl.figureList.get(i).getY() * (boardSizeY / 8)) - 27,
+							boardSizeX / 8, boardSizeY / 8, this);
+				}
+				else {
+					g2.drawImage(dame.sS, positionBoardX + (gl.figureList.get(i).getX() * (boardSizeX / 8)), positionBoardY + (gl.figureList.get(i).getY() * (boardSizeY / 8)) - 27,
+							boardSizeX / 8, boardSizeY / 8, this);
+				}
+			}
+			
 		}
 		
 	

@@ -8,8 +8,8 @@ public class GameLogic {
 	public ArrayList<Figures> figureList = new ArrayList<Figures>();
 
 	//Variable für Farbe, die am Zug ist 
-	public boolean amZug = false;
-	
+	public boolean amZug = false; 
+	public boolean schonGeschlagen = false;
 	//Arraylist füllen methode
 	public void fillList() {
 		for (int i = 0; i < 24; i++) {
@@ -36,7 +36,7 @@ public class GameLogic {
 	//Damenerstellung bei erreichen der Grundlinie
 	public void changeQueen() {
 		for (int i = 0; i < figureList.size(); i++) {
-			if (figureList.get(i).getY() == 7 || figureList.get(i).getY() == 0) {
+			if (figureList.get(i).getY() == 0 && figureList.get(i).getColor() || figureList.get(i).getY() == 7 && !figureList.get(i).getColor()) {
 				figureList.add(i,new Queen(figureList.get(i).getColor(), figureList.get(i).getX(), figureList.get(i).getY()));
 				figureList.remove(i+1);
 				break;
@@ -51,16 +51,15 @@ public class GameLogic {
 			if(figureList.get(i).getX() == x && figureList.get(i).getY() == y && figureList.get(i).getColor() == amZug) {
 				if(figureList.get(i).getSelected()) {
 					figureList.get(i).setSelected(false);
+					System.out.println("deselected");
+					System.out.println("");
 				}
 				else{
 					for (int j = 0; j < figureList.size(); j++) {
 						figureList.get(j).setSelected(false);
 					}
-					System.out.println("erreicht");
-					System.out.println(figureList.get(i).getX());
-					System.out.println(figureList.get(i).getY());
-					System.out.println(figureList.get(i).getColor());
 					figureList.get(i).setSelected(true);
+					System.out.println("Ausgewählt");
 				}
 				return false;
 			}
@@ -71,8 +70,12 @@ public class GameLogic {
 	
 	//Gucken ob das Feld, dass man gewählt hat besezt ist 
 	public boolean proofOccupied(int x, int y) {
+		System.out.println("PoofOccupied bei:" + x + " und " + y);
 		for (int i = 0; i < figureList.size(); i++) {
 			if(figureList.get(i).getX() == x && figureList.get(i).getY() == y) {
+				System.out.println("Auf folgendem Feld eine Figur:");
+				System.out.println(figureList.get(i).getX());
+				System.out.println(figureList.get(i).getY());
 				return true;
 			}
 		}
@@ -86,38 +89,27 @@ public class GameLogic {
 			if(fig.getColor() != figureList.get(i).getColor()) {
 				//wenn eine Figur dort ist, wo die selectete hinaufen kann
 				if (fig.movePossible(figureList.get(i).getX(), figureList.get(i).getY())) {
-					System.out.println("Figur erreichbar");
-					System.out.println(fig.getX());
-					System.out.println(fig.getY());
-					System.out.println(fig.getColor());
-					System.out.println("----------------------");
+					System.out.println("figur in reichweite");
 					System.out.println(figureList.get(i).getX());
 					System.out.println(figureList.get(i).getY());
-					System.out.println(figureList.get(i).getColor());
 					//Figuren kommen aus vier möglichen Richtungen wo sie Schlagen können
-					if (fig.getY() < figureList.get(i).getY() && fig.getX() < figureList.get(i).getX()) {
-						if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() + 1)) {
-							System.out.println("Schlagen möglich");
-							return true;
-						}
+					if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() + 1)) {
+						System.out.println("Figur Schlagen möglich 1");
+						System.out.println("Da Feld " + figureList.get(i).getX() + " ; " + figureList.get(i).getY() + " frei");
+						//überprüfen ob das möbgliche x oder y auch dem ausgewählten entspricht
+						return true;
 					}
-					if (fig.getY() < figureList.get(i).getY() && fig.getX() > figureList.get(i).getX()) {
-						if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() - 1)) {
-							System.out.println("Schlagen möglich");
-							return true;
-						}
+					if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() - 1)) {
+						System.out.println("Figur Schlagen möglich 2");
+						return true;
 					}
-					if (fig.getY() > figureList.get(i).getY() && fig.getX() < figureList.get(i).getX()) {
-						if (!proofOccupied(figureList.get(i).getX() - 1, figureList.get(i).getY() + 1)) {
-							System.out.println("Schlagen möglich");
-							return true;
-						}
+					if (!proofOccupied(figureList.get(i).getX() - 1, figureList.get(i).getY() + 1)) {
+						System.out.println("Figur Schlagen möglich 3");
+						return true;
 					}
-					if (fig.getY() > figureList.get(i).getY() && fig.getX() > figureList.get(i).getX()) {
-						if (!proofOccupied(figureList.get(i).getX() - 1, figureList.get(i).getY() - 1)) {
-							System.out.println("Schlagen möglich");
-							return true;
-						}
+					if (!proofOccupied(figureList.get(i).getX() - 1, figureList.get(i).getY() - 1)) {
+						System.out.println("Figur Schlagen möglich 4");
+						return true;
 					}
 				}
 			}
@@ -144,39 +136,35 @@ public class GameLogic {
 			if(fig.getColor() != figureList.get(i).getColor()) {
 				//wenn eine Figur dort ist, wo die selectete hinaufen kann
 				if (fig.movePossible(figureList.get(i).getX(), figureList.get(i).getY())) {
-					
+					System.out.println("figur in reichweite");
 					//Figuren kommen aus vier möglichen Richtungen wo sie Schlagen können
-					if (fig.getY() < figureList.get(i).getY() && fig.getX() < figureList.get(i).getX()) {
-						if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() + 1)) {
-							//überprüfen ob das möbgliche x oder y auch dem ausgewählten entspricht
-							if ((figureList.get(i).getX() + 1) == x && (figureList.get(i).getY() + 1) == y) {
-								figureList.get(i).setBeaten(true);
-								return true;
-							}
+					if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() + 1)) {
+						System.out.println("Figur Schlagen möglich");
+						//überprüfen ob das möbgliche x oder y auch dem ausgewählten entspricht
+						if ((figureList.get(i).getX() + 1) == x && (figureList.get(i).getY() + 1) == y) {
+							figureList.get(i).setBeaten(true);
+							return true;
 						}
 					}
-					if (fig.getY() < figureList.get(i).getY() && fig.getX() > figureList.get(i).getX()) {
-						if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() - 1)) {
-							if ((figureList.get(i).getX() + 1) == x && (figureList.get(i).getY() - 1) == y) {
-								figureList.get(i).setBeaten(true);
-								return true;
-							}
+					if (!proofOccupied(figureList.get(i).getX() + 1, figureList.get(i).getY() - 1)) {
+						System.out.println("Figur Schlagen möglich");
+						if ((figureList.get(i).getX() + 1) == x && (figureList.get(i).getY() - 1) == y) {
+							figureList.get(i).setBeaten(true);
+							return true;
 						}
 					}
-					if (fig.getY() > figureList.get(i).getY() && fig.getX() < figureList.get(i).getX()) {
-						if (!proofOccupied(figureList.get(i).getX() - 1, figureList.get(i).getY() + 1)) {
-							if ((figureList.get(i).getX() - 1) == x && (figureList.get(i).getY() + 1) == y) {
-								figureList.get(i).setBeaten(true);
-								return true;
-							}
+					if (!proofOccupied(figureList.get(i).getX() - 1, figureList.get(i).getY() + 1)) {
+						System.out.println("Figur Schlagen möglich");
+						if ((figureList.get(i).getX() - 1) == x && (figureList.get(i).getY() + 1) == y) {
+							figureList.get(i).setBeaten(true);
+							return true;
 						}
 					}
-					if (fig.getY() > figureList.get(i).getY() && fig.getX() > figureList.get(i).getX()) {
-						if (!proofOccupied(figureList.get(i).getX() - 1, figureList.get(i).getY() - 1)) {
-							if ((figureList.get(i).getX() - 1) == x && (figureList.get(i).getY() - 1) == y) {
-								figureList.get(i).setBeaten(true);
-								return true;
-							}
+					if (!proofOccupied(figureList.get(i).getX() - 1, figureList.get(i).getY() - 1)) {
+						System.out.println("Figur Schlagen möglich");
+						if ((figureList.get(i).getX() - 1) == x && (figureList.get(i).getY() - 1) == y) {
+							figureList.get(i).setBeaten(true);
+							return true;
 						}
 					}
 				}
@@ -208,6 +196,7 @@ public class GameLogic {
 					}
 					else if(figureBeatPossible(x, y, figureList.get(i))) {
 						System.out.println("Figur Schlägt");
+						schonGeschlagen = true;
 						beaten();
 						return true;
 					}
@@ -225,11 +214,17 @@ public class GameLogic {
 				figureList.get(i).setY(y);
 				System.out.println(figureList.get(i).getX());
 				System.out.println(figureList.get(i).getY());
-				if(!figureBeatPossible(figureList.get(i))) {
-					amZug = !amZug;
+				amZug = !amZug;
+				System.out.println("------------------------------------");
+				if(figureBeatPossible(figureList.get(i))) {
+					if (schonGeschlagen) {
+						amZug = !amZug;
+						System.out.println("------------------------------------");
+					}
+					
 				}
+				schonGeschlagen = false;
 				figureList.get(i).setSelected(false);
-				System.out.println(amZug);
 				break;
 			}
 		} 

@@ -63,4 +63,8 @@ public class Figures {
 			}
 		}
 	}
+	//Methode um zu prüfen, ob die Figur eine Queen ist
+	public boolean proofQueen() {
+		return false;
+	}
 }

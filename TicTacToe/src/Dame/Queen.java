@@ -16,4 +16,8 @@ public class Queen extends Figures{
 				return false;
 			}
 	}
+	@Override
+	public boolean proofQueen() {
+		return true;
+	}
 }
