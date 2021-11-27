@@ -1,39 +1,17 @@
 package menschAergereDichNicht;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.EventQueue;
+
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.WindowConstants;
-import javax.swing.border.EmptyBorder;
-
-
-
-import TicTacToe.Components.Circle;
-import TicTacToe.Components.Cross;
-import TicTacToe.Components.WinScreen;
-import TicTacToe.Graphics.DrawEngine;
-
 import javax.swing.BorderFactory;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 public class Frame extends JFrame {
 
 	private JPanel contentPane;
