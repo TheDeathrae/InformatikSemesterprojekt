@@ -5,7 +5,7 @@ public class Board {
 	private int positionen[] = new int[73];
 	private int spielerAnzahl;
 	private int anDerReihe;
-	private int spielerGewonnen;
+	private int spielerGewonnen = 0;
 	private boolean zugDurchgefuehrt = false;
 	
 	public int getSpielerAnzahl() {
