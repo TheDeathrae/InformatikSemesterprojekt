@@ -22,7 +22,7 @@ public class Draw extends JPanel{
 
         ImagesM a = new ImagesM();
         
-        g2.drawImage(a.board, 0, 0,x,y, this);
+        g2.drawImage(a.board2, 0, 0,x,y, this);
     }
 }
 	
