@@ -46,7 +46,7 @@ public class Frame extends JFrame {
 		
 		createLabels();
 		createButtons();
-		playerSelectAction(2);
+		playerSelectAction(1);
 		setButtonPositions();
 		
 		
