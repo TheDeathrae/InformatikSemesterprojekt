@@ -87,7 +87,7 @@ public class Board {
 		}
 	}
 	
-	void bewegung(int start, int ende) {																						// fï¿½hrt Bewegung von Steinen aus
+	void bewegung(int start, int ende) {																						// führt Bewegung von Steinen aus
 		int startObjekt = positionen[start];
 		int endObjekt = positionen[ende];
 		
@@ -100,7 +100,7 @@ public class Board {
 			positionen[ende] = startObjekt;
 			if(endObjekt == 1) {
 				for(int i = 56; i <= 59; i++) {
-					int a = 0;																					// sorgt dafï¿½r, dass nicht mehrere Plï¿½tze besetzt werden
+					int a = 0;																					// sorgt dafür, dass nicht mehrere Plätze besetzt werden
 					if(a == 0) {
 						if(positionen[i] == 0) {
 							positionen[i] = endObjekt;
@@ -145,7 +145,15 @@ public class Board {
 	
 	void move(int startposition, int spieler, int wuerfel) {																	// legt fest auf welchen Orten Bewegungen 
 		if(spieler == 1) {																										// durchgefï¿½hrt werden kï¿½nnen
-			if(startposition == 56 || startposition == 58 || startposition == 58 || startposition == 59) {						// Spielstein ist in der Basis
+			if(positionen[0] == 1 && zugMoeglichVonStart(1, wuerfel)) {
+				if(startposition == 0) {
+					bewegung(0, wuerfel);
+				}
+			} else if(numberInBase(1) != 0 && wuerfel == 6 && positionen[0] != 1) {
+				if(startposition > 55 && startposition < 60) {
+					bewegung(startposition, 0);
+				}												// Spielstein ist in der Basis
+			} else if(startposition == 56 || startposition == 58 || startposition == 58 || startposition == 59) {
 				if(wuerfel == 6) {																								// 6 wurde gewï¿½rfelt
 				bewegung(startposition, 0);
 				}
@@ -163,7 +171,16 @@ public class Board {
 			}
 			
 		} else if(spieler == 2) {
-			if(startposition == 60 || startposition == 61 || startposition == 62 || startposition == 63) {						// Spielstein ist in der Basis
+			
+			if(positionen[10] == 2 && zugMoeglichVonStart(2, wuerfel)) {
+				if(startposition == 10) {
+					bewegung(10, 10 + wuerfel);
+				}
+			} else if(numberInBase(2) != 0  && wuerfel == 6 && positionen[10] != 2) {
+				if(startposition > 59 && startposition < 64) {
+					bewegung(startposition, 10);
+				}												// Spielstein ist in der Basis
+			} else if(startposition == 60 || startposition == 61 || startposition == 62 || startposition == 63) {						// Spielstein ist in der Basis
 				if(wuerfel == 6) {																								// 6 wurde gewï¿½rfelt
 				bewegung(startposition, 10);
 				}
@@ -184,7 +201,15 @@ public class Board {
 			
 		} else if(spieler == 3) {
 			
-			if(startposition == 64 || startposition == 65 || startposition == 66 || startposition == 67) {						// Spielstein ist in der Basis
+			if(positionen[20] == 3 && zugMoeglichVonStart(3, wuerfel)) {
+				if(startposition == 20) {
+					bewegung(20, 20 + wuerfel);
+				}
+			} else if(numberInBase(3) != 0  && wuerfel == 6 && positionen[20] != 3) {
+				if(startposition > 63 && startposition < 68) {
+					bewegung(startposition, 20);
+				}												// Spielstein ist in der Basis
+			} else if(startposition == 64 || startposition == 65 || startposition == 66 || startposition == 67) {						// Spielstein ist in der Basis
 				if(wuerfel == 6) {																								// 6 wurde gewï¿½rfelt
 				bewegung(startposition, 20);
 				}
@@ -204,8 +229,16 @@ public class Board {
 			
 		} else {
 			
-			if(startposition == 68 || startposition == 69 || startposition == 70 || startposition == 71) {						// Spielstein ist in der Basis
-				if(wuerfel == 6) {																								// 6 wurde gewï¿½rfelt
+			if(positionen[30] == 4 && zugMoeglichVonStart(4, wuerfel)) {
+				if(startposition == 30) {
+					bewegung(30, 30 + wuerfel);
+				}
+			}  else if(numberInBase(4) != 0  && wuerfel == 6 && positionen[30] != 4) {
+				if(startposition > 67 && startposition < 72) {
+					bewegung(startposition, 30);
+				}												// Spielstein ist in der Basis
+			}else if(startposition == 68 || startposition == 69 || startposition == 70 || startposition == 71) {						// Spielstein ist in der Basis
+				if(wuerfel == 6) {																								// 6 wurde gewürfelt
 				bewegung(startposition, 30);
 				}
 			}
@@ -227,6 +260,98 @@ public class Board {
 	}
 	public boolean isInBase(int spieler) {
 		
+		int zaehler = 0;
+		if(spieler == 1) {
+			for(int i = 0; i < 4; i++) {
+				int hausStelle = 43 - i;
+				if(positionen[hausStelle] == 1) {
+					zaehler ++;
+				} else {
+					break;
+				}
+			}
+			for(int i = 0; i < 4; i++) {
+				int baseStelle = i + 56;
+				if(positionen[baseStelle] == 1)
+					zaehler ++;
+			}
+		} else if(spieler == 2) {
+			for(int i = 0; i < 4; i++) {
+				int hausStelle = 43 - i;
+				if(positionen[hausStelle] == 1) {
+					zaehler ++;
+				} else {
+					break;
+				}
+			}
+			for(int i = 0; i < 4; i++) {
+				int baseStelle = i + 60;
+				if(positionen[baseStelle] == 2)
+					zaehler ++;
+			}
+		} else if(spieler == 3) {
+			for(int i = 0; i < 4; i++) {
+				int hausStelle = 43 - i;
+				if(positionen[hausStelle] == 1) {
+					zaehler ++;
+				} else {
+					break;
+				}
+			}
+			for(int i = 0; i < 4; i++) {
+				int baseStelle = i + 64;
+				if(positionen[baseStelle] == 3)
+					zaehler ++;
+			}
+		} else if(spieler == 4) {
+			for(int i = 0; i < 4; i++) {
+				int hausStelle = 43 - i;
+				if(positionen[hausStelle] == 1) {
+					zaehler ++;
+				} else {
+					break;
+				}
+			}
+			for(int i = 0; i < 4; i++) {
+				int baseStelle = i + 68;
+				if(positionen[baseStelle] == 4)
+					zaehler ++;
+			}
+		}
+		if(zaehler == 4) {
+			return true;
+		} else {
+			return false;
+		}	
+	}
+	boolean zugMoeglichVonStart(int spieler, int wuerfel) {
+		if(spieler == 1) {
+			if(positionen[wuerfel] != 1) {
+				return true;
+			} else {
+				return false;
+			}
+		} else if(spieler == 2) {
+			if(positionen[wuerfel+10] != 2) {
+				return true;
+			} else {
+				return false;
+			}
+		} else if(spieler == 3) {
+			if(positionen[wuerfel+20] != 3) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			if(positionen[wuerfel+30] != 4) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+	int numberInBase(int spieler) {
 		int zaehler = 0;
 		if(spieler == 1) {
 			for(int i = 0; i < 4; i++) {
@@ -253,10 +378,7 @@ public class Board {
 					zaehler ++;
 			}
 		}
-		if(zaehler == 4) {
-			return true;
-		} else {
-			return false;
-		}	
+		return zaehler;
 	}
-}
+} 	
+
