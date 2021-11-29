@@ -11,7 +11,8 @@ public class Images {
     public final static String imageCircle = "src/Images/TikTakToe/cricle.png";
     public final static String imageCross = "src/Images/TikTakToe/Cross.png";
     public final static String imageWinScreen = "src/Images/TikTakToe/winSymbol.png";
-    public final static String imageHintergrund = "src/Images/Muehle/BrettUndHintergrund.png";
+    public final static String imageHintergrund = "src/Images/Muehle/Hintergrund.png";
+    public final static String imageBrett = "src/Images/Muehle/Brett.png";
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
@@ -30,6 +31,7 @@ public class Images {
     public BufferedImage cross;
     public BufferedImage winScreen;
     public BufferedImage hintergrund;
+    public BufferedImage brett;
 
 
     public Images() {
@@ -38,6 +40,7 @@ public class Images {
             cross = ImageIO.read(new File(imageCross));
             winScreen = ImageIO.read(new File(imageWinScreen));
             hintergrund = ImageIO.read(new File(imageHintergrund));
+            brett = ImageIO.read(new File(imageBrett));
 
         } catch (IOException ex) {
             System.err.print("Bild nicht vorhanden");
