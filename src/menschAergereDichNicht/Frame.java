@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,6 +18,7 @@ public class Frame extends JFrame {
 
 	private JPanel contentPane;
 	JButton[] buttons = new JButton[73];
+	JButton[] actionButtons = new JButton[2];
 	JLabel[] labels = new JLabel[4];
     int positionSelected;
     ImagesM im = new ImagesM();
@@ -34,7 +37,7 @@ public class Frame extends JFrame {
 		int x = Toolkit.getDefaultToolkit().getScreenSize().width;
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setTitle("Tic Tac Toe");
-	    setBounds(0, 0, x, y);
+	    setBounds(0, 0, 1920, 1080);
 		setResizable(false);
 		setVisible(true);
 		contentPane = new Draw();
@@ -102,23 +105,23 @@ public class Frame extends JFrame {
 				} );
 			contentPane.add(buttons[i]);
 		}
-		JButton roll = new JButton("wuerfeln");
-		roll.addActionListener(new ActionListener() { 
+		actionButtons[0] = new JButton("wuerfeln");
+		actionButtons[0].addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 				 wuerfelnAction();
 			  } 
 			} );
-		roll.setBounds(spalte(12),reihe(10), 100, 50);
-		contentPane.add(roll);
+		actionButtons[0].setBounds(spalte(12),reihe(10), 400, 300);
+		contentPane.add(actionButtons[0]);
 		
-		JButton move = new JButton("bewegen");
-		move.addActionListener(new ActionListener() { 
+		actionButtons[1] = new JButton("bewegen");
+		actionButtons[1].addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 				 moveAction();
 			  } 
 			} );
-		move.setBounds(spalte(12),reihe(8), 100, 50);
-		contentPane.add(move);
+		actionButtons[1].setBounds(spalte(12),reihe(8), 100, 50);
+		contentPane.add(actionButtons[1]);
 	}
 	void createLabels() {
 		
@@ -297,6 +300,7 @@ public class Frame extends JFrame {
     			int wurf = dice.getNumberRolled();
     			System.out.println(String.valueOf(wurf));
     			labels[2].setText(zahlZuWort(wurf));
+    			actionButtons[0].setIcon(new ImageIcon(wurfZuBild(wurf)));
     			hatGewuerfelt = true;
     			displayActionRequired();
     		}
@@ -365,6 +369,21 @@ public class Frame extends JFrame {
     				labels[1].setText("GRüN HAT GEWONNEN");
     			}   			
     		}
-    	} 
+    	}
+    	BufferedImage wurfZuBild(int wurf) {
+    		if (wurf == 1) {
+    			return im.eins;
+    		} else if (wurf == 2) {
+    			return im.zwei;
+    		} else if (wurf == 3) {
+    			return im.drei;
+    		} else if (wurf == 4) {
+    			return im.vier;
+    		} else if (wurf == 5) {
+    			return im.fuenf;
+    		} else {
+    			return im.sechs;
+    		}
+    	}
 	} 
 
