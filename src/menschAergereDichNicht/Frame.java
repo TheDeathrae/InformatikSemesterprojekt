@@ -1,5 +1,7 @@
 package menschAergereDichNicht;
 
+import menschAergereDichNicht.Dice;
+
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -25,6 +27,7 @@ public class Frame extends JFrame {
     Dice dice = new Dice();
     Board board = new Board();
     
+
     
 	public static void main(String[] args) {
 		new Frame();

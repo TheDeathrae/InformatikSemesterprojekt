@@ -5,8 +5,6 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import TicTacToe.Components.Drawable;
-import TicTacToe.Graphics.Images;
 import java.awt.Toolkit;
 public class Draw extends JPanel{
 	
