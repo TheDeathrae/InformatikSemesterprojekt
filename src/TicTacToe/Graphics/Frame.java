@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import TicTacToe.Components.Circle;
 import TicTacToe.Components.Cross;
@@ -44,28 +44,44 @@ public class Frame extends JFrame {
 
                 int x = arg0.getX();
                 int y = arg0.getY();
+                int feld_x;
 
-                if (inFrameX(arg0.getX()) && inFrameY(arg0.getY())) {
+                if (inFrameX(arg0.getX()-10) && inFrameY(arg0.getY()-10)) {
                     // Zustand ändern
-                    int feld_x = Math.floorDiv(x, (DrawEngine.boardSize / 3)) - 3;
+                    if(screenSize.width == 2560){
+                        feld_x = Math.floorDiv(x, (DrawEngine.boardSize / 3)) - 3;
+                        System.out.println("test");
+                    }
+                    else{
+                        System.out.println("test1");
+                        feld_x = Math.floorDiv(x, (DrawEngine.boardSize / 3)) - 2;
+                    }
+                    //wenn zu weit rechts geclickt, kann feld_x = 3 werden, darf aber nicht sein, sonst außerhalb
+                    if (feld_x > 2){
+                        feld_x--;
+                    }
                     int feld_y = Math.floorDiv(y, (DrawEngine.boardSize / 3)) - 1;
-                    zustand.setzen(feld_x + feld_y * 3);
-                    // Zustand zeichnen
-                    if (zustand.get_spielerAmZug() == 1) {
-                        draw_engine.toDraw(new Cross(feld_x * (DrawEngine.boardSize / 3) + screenSize.width / 2 - DrawEngine.boardSize / 2, feld_y * (DrawEngine.boardSize / 3) + screenSize.height / 2 - DrawEngine.boardSize / 2));
-                    } else {
-                        draw_engine.toDraw(new Circle(feld_x * (DrawEngine.boardSize / 3) + screenSize.width / 2 - DrawEngine.boardSize / 2, feld_y * (DrawEngine.boardSize / 3) + screenSize.height / 2 - DrawEngine.boardSize / 2));
+                    if (!zustand.setzen(feld_x + feld_y * 3)){
+                        System.out.println("Fehler");
                     }
-                    if (zustand.gewinnPruefen() != 0) {
-                        if (zustand.gewinnPruefen() == 1) {
-                            draw_engine.toDraw(new WinScreen(screenSize.width / 2, screenSize.height / 2));
-                            //draw_engine.reset();
-                            //zustand.reset();
+                    else{
+                        // Zustand zeichnen
+                        if (zustand.get_spielerAmZug() == 1) {
+                            draw_engine.toDraw(new Cross((feld_x * (DrawEngine.boardSize / 3) + screenSize.width / 2 - DrawEngine.boardSize / 2) + 53, (feld_y * (DrawEngine.boardSize / 3) + screenSize.height / 2 - DrawEngine.boardSize / 2) + 53));
                         } else {
-                            System.out.println("patt");
+                            draw_engine.toDraw(new Circle((feld_x * (DrawEngine.boardSize / 3) + screenSize.width / 2 - DrawEngine.boardSize / 2) + 53, (feld_y * (DrawEngine.boardSize / 3) + screenSize.height / 2 - DrawEngine.boardSize / 2) + 53));
                         }
+                        if (zustand.gewinnPruefen() != 0) {
+                            if (zustand.gewinnPruefen() == 1) {
+                                //draw_engine.reset();
+                                //zustand.reset();
+                                draw_engine.toDraw(new WinScreen(screenSize.width / 2, screenSize.height / 2));
+                            } else {
+                                System.out.println("patt");
+                            }
+                        }
+                        repaint();
                     }
-                    repaint();
                 }
             }
 

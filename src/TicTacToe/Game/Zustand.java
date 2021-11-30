@@ -32,6 +32,9 @@ public class Zustand {
     }
 
     public int gewinnPruefen() {
+        for (int i = 0; i <9; i++){
+            System.out.println("Stelle " + i + ":" + feld[i]);
+        }
         //horizontal gewonnen
         for (int i = 0; i < 7; i= i + 3) {
             if (feld[i] == feld[i + 1] && feld[i + 1] == feld[i + 2] && feld[i] != 0) {

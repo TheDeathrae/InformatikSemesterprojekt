@@ -1,12 +1,10 @@
-package TicTacToe.Components;
+package Muehle.Components;
 
 import java.awt.image.BufferedImage;
 
 public class Drawable {
     private int xKoordinate;
     private int yKoordinate;
-    private int reihe;
-    private int spalte;
     public BufferedImage image;
 
     public Drawable(int x, int y) {

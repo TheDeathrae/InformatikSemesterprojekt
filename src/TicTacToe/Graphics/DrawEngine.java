@@ -46,6 +46,7 @@ public class DrawEngine extends JPanel {
 
         Images a = new Images();
 
+        g2.drawImage(a.hintergrund, 0, 0, screenSize.width, screenSize.height, this);
         g2.drawImage(a.a1, positionBoardX, positionBoardY, boardSize / 3, boardSize / 3, this);
         g2.drawImage(a.a2, positionBoardX + boardSize / 3, positionBoardY, boardSize / 3, boardSize / 3, this);
         g2.drawImage(a.a3, positionBoardX + boardSize / 3 * 2, positionBoardY, boardSize / 3, boardSize / 3, this);
@@ -55,7 +56,7 @@ public class DrawEngine extends JPanel {
         g2.drawImage(a.c1, positionBoardX, positionBoardY + boardSize / 3 * 2, boardSize / 3, boardSize / 3, this);
         g2.drawImage(a.c2, positionBoardX + boardSize / 3, positionBoardY + boardSize / 3 * 2, boardSize / 3, boardSize / 3, this);
         g2.drawImage(a.c3, positionBoardX + boardSize / 3 * 2, positionBoardY + boardSize / 3 * 2, boardSize / 3, boardSize / 3, this);
-        g2.drawImage(a.hintergrund, positionBoardX - 1920 / 2 + (boardSize - 1) / 2 - 11, positionBoardY - 1080 / 2 + boardSize / 2, 1920, 1080, this);
+        g2.drawImage(a.rahmen, positionBoardX - 35, positionBoardY - 35, boardSize + 70, boardSize + 70, this);
 
         int f = (int) (boardSize / 3 * 0.6); //passt Größe des Bildes an Feld an
 

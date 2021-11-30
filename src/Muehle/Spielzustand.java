@@ -49,7 +49,7 @@ public class Spielzustand {
             return true;
         }
         //vertikal 6
-        if (feld[7] == feld[12] && feld[12] == feld[17] && feld[7] != 0) {
+        if (feld[8] == feld[12] && feld[12] == feld[17] && feld[8] != 0) {
             return true;
         }
         //vertikal 7
@@ -64,9 +64,12 @@ public class Spielzustand {
     }
 
     public int gewinnPruefen() {
-        for (int i = 0; i<24; i++){
+        for (int i = 0; i<24;){
             if(feld[i] != spielerAmZug){
-                return 1;
+                i++;
+                if(i == 23){
+                    return 1;
+                }
             }
         }
         return 2;
