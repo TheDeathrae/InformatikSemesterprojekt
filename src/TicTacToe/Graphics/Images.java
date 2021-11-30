@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Images {
-    public final static String imageCircle = "src/Images/TikTakToe/cricle.png";
+    public final static String imageCircle = "src/Images/TikTakToe/circle.png";
     public final static String imageCross = "src/Images/TikTakToe/Cross.png";
     public final static String imageWinScreen = "src/Images/TikTakToe/winSymbol.png";
     public final static String imageHintergrund = "src/Images/TikTakToe/Hintergrund.png";

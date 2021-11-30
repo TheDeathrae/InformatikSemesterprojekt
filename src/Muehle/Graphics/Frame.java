@@ -1,19 +1,9 @@
 package Muehle.Graphics;
 
 import Muehle.Spielzustand;
-import TicTacToe.Components.Circle;
-import TicTacToe.Components.Cross;
-import TicTacToe.Components.Drawable;
-import TicTacToe.Components.WinScreen;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Frame extends JFrame {
@@ -31,4 +21,3 @@ public class Frame extends JFrame {
         setVisible(true);
     }
 }
-

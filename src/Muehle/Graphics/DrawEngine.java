@@ -13,6 +13,7 @@ import Muehle.Spielzustand;
 import Muehle.Components.*;
 import Muehle.Components.bluePieces;
 import Muehle.Components.whitePieces;
+import TicTacToe.Components.WinScreen;
 
 public class DrawEngine extends JPanel {
     private final Spielzustand spielzustand = new Spielzustand();
@@ -56,6 +57,13 @@ public class DrawEngine extends JPanel {
         drawables.clear();
     }
 
+    //public void draw(){
+     ////  }
+
+     //   spielzustand.gewinnPruefen();
+      //  repaint();
+    //}
+
     @Override
     protected void paintComponent(Graphics g) {
         add(zug0);
@@ -86,18 +94,22 @@ public class DrawEngine extends JPanel {
         zug0.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (spielzustand.get_spielerAmZug() == 1) {
-                    toDraw(new whitePieces(zug0.getWidth(), zug0.getHeight()));
+                    toDraw(new whitePieces(zug0.getX(),zug0.getY()));
                 } else {
                     toDraw(new bluePieces(zug0.getWidth(), zug0.getHeight()));
                 }
-                repaint();
             }
         });
         setVisible(true);
         zug1.setBounds(boardCornerWidth + boardSize / 2 - buttonSize / 2, boardCornerHeight, buttonSize, buttonSize);
         zug1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                if (spielzustand.get_spielerAmZug() == 1) {
+                    toDraw(new whitePieces(zug0.getWidth(), zug0.getHeight()));
+                } else {
+                    toDraw(new bluePieces(zug0.getWidth(), zug0.getHeight()));
+                }
+                repaint();
             }
         });
         setVisible(true);

@@ -82,7 +82,8 @@ public class Frame extends JFrame implements ActionListener { // wir k�nnen au
         }
 
         if (e.getSource() == Dame) {
-
+            Dame.FrameDame temp;
+            temp = new Dame.FrameDame();
         }
 
         if (e.getSource() == ende) {

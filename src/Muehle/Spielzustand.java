@@ -21,10 +21,18 @@ public class Spielzustand {
         return true;
     }
 
-    public boolean steinNehmen(){
+    public boolean steinNehmen(int zug) {
+        if (feldFrei(zug)) {
+            return false;
+        }
+        feld[zug] = 0;
+        return true;
+    }
+
+    public boolean kannSteinNehmen() {
         //horizontal
-        for (int i = 0; i<22; i+=3){
-            if (feld[i] == feld[i+1] && feld[i+1] == feld[i+2] && feld[i] != 0) {
+        for (int i = 0; i < 22; i += 3) {
+            if (feld[i] == feld[i + 1] && feld[i + 1] == feld[i + 2] && feld[i] != 0) {
                 return true;
             }
         }
@@ -63,15 +71,19 @@ public class Spielzustand {
         return false;
     }
 
-    public int gewinnPruefen() {
-        for (int i = 0; i<24;){
-            if(feld[i] != spielerAmZug){
+    public boolean gewinnPruefen() {
+        boolean nichtLeer = false;
+        for (int i = 0; i < 24; ) {
+            if (feld[i] != spielerAmZug) {
                 i++;
-                if(i == 23){
-                    return 1;
+                if ((i == 23) && nichtLeer) {
+                    return true;
                 }
             }
+            if (feld[i] != 0) {
+                nichtLeer = true;
+            }
         }
-        return 2;
+        return false;
     }
 }
