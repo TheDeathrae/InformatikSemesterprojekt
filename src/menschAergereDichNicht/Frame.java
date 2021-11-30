@@ -1,11 +1,15 @@
 package menschAergereDichNicht;
 
+import menschAergereDichNicht.Dice;
+
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,29 +20,30 @@ public class Frame extends JFrame {
 
 	private JPanel contentPane;
 	JButton[] buttons = new JButton[73];
-	JLabel[] labels = new JLabel[4];
+	JButton[] actionButtons = new JButton[3];
+	JLabel[] labels = new JLabel[2];
     int positionSelected;
     ImagesM im = new ImagesM();
     Dice dice = new Dice();
     Board board = new Board();
     
+
     
 	public static void main(String[] args) {
-		new Frame();
+		new Frame(2);
 	}
 	
 	
 
-	public Frame() {
-		int y = Toolkit.getDefaultToolkit().getScreenSize().height;
-		int x = Toolkit.getDefaultToolkit().getScreenSize().width;
+		public Frame(int spieler) {
+
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setTitle("Tic Tac Toe");
-	    setBounds(0, 0, x, y);
+	    setBounds(0, 0, 1920, 1080);
 		setResizable(false);
 		setVisible(true);
 		contentPane = new Draw();
-		contentPane.setBounds(0, 0, x, y);
+		contentPane.setBounds(0, 0, 1920, 1080);
 		contentPane.setVisible(true);
 		contentPane.setLayout(null);	
 		contentPane.setVisible(true);
@@ -46,7 +51,7 @@ public class Frame extends JFrame {
 		
 		createLabels();
 		createButtons();
-		playerSelectAction(1);
+		playerSelectAction(spieler);
 		setButtonPositions();
 		
 		
@@ -93,7 +98,6 @@ public class Frame extends JFrame {
 			buttons[i] = new JButton();
 			buttons[i].setBorder(BorderFactory.createEmptyBorder());
 			buttons[i].setContentAreaFilled(false);
-
 			buttons[i].addActionListener(new ActionListener() { 
 				  public void actionPerformed(ActionEvent e) { 
 					  positionSelected = zahl;
@@ -102,43 +106,32 @@ public class Frame extends JFrame {
 				} );
 			contentPane.add(buttons[i]);
 		}
-		JButton roll = new JButton("wuerfeln");
-		roll.addActionListener(new ActionListener() { 
+		actionButtons[0] = new JButton(new ImageIcon(im.eins));
+		actionButtons[0].addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 				 wuerfelnAction();
 			  } 
 			} );
-		roll.setBounds(spalte(12),reihe(10), 100, 50);
-		contentPane.add(roll);
+		actionButtons[0].setBounds(1560,472, 192, 192);
+		actionButtons[0].setBorder(BorderFactory.createEmptyBorder());
+		contentPane.add(actionButtons[0]);
 		
-		JButton move = new JButton("bewegen");
-		move.addActionListener(new ActionListener() { 
+		actionButtons[1] = new JButton(new ImageIcon(im.bewegen));
+		actionButtons[1].addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 				 moveAction();
 			  } 
 			} );
-		move.setBounds(spalte(12),reihe(8), 100, 50);
-		contentPane.add(move);
+		actionButtons[1].setBounds(1560,704, 192, 136);
+		actionButtons[1].setBorder(BorderFactory.createEmptyBorder());
+		contentPane.add(actionButtons[1]);
 	}
 	void createLabels() {
 		
-		labels[0] = new JLabel("an der Reihe");
-		labels[0].setBounds(spalte(12), reihe(0) , 100, 50);
+		labels[0] = new JLabel(new ImageIcon(im.ampelYR));
+		labels[0].setBounds(1560, 240 , 192, 192);
 		labels[0].setVisible(true);
 		contentPane.add(labels[0]);
-		labels[1] = new JLabel("gewinnen");
-		labels[1].setBounds(spalte(12), reihe(5) , 100, 50);
-		labels[1].setVisible(true);
-		contentPane.add(labels[1]);
-		labels[2] = new JLabel("wuerfelwurf");
-		labels[2].setBounds(spalte(12), reihe(9) , 100, 50);
-		labels[2].setVisible(true);
-		contentPane.add(labels[2]);
-		labels[3] = new JLabel("aktion benötigt");
-		labels[3].setBounds( spalte(12), reihe(1), 100, 50);
-		labels[3].setVisible(true);
-		contentPane.add(labels[3]);
-		
 	}
 	void setButtonPositions() {
 		
@@ -259,7 +252,7 @@ public class Frame extends JFrame {
     			board.setSpielerAnzahl(spieleranzahl);
     			board.initialisieren();
     			board.setAnDerReihe(1);
-    			displayActivePlayer();
+    			displayActionRequired();
     			draw();
     			playerIsSelected = true;
     		}
@@ -269,7 +262,6 @@ public class Frame extends JFrame {
     		int[] vorlage = board.getPositionen();
     		if (vorlage[positionSelected] == board.getAnDerReihe() && hatGewuerfelt) {
     			board.move(positionSelected, board.getAnDerReihe(), dice.getNumberRolled());
-    			checkWinning();
     			if(board.isZugDurchgefuehrt()) {
     				hatGewuerfelt = false;
     				board.setZugDurchgefuehrt(false);
@@ -296,7 +288,7 @@ public class Frame extends JFrame {
     			dice.roll();
     			int wurf = dice.getNumberRolled();
     			System.out.println(String.valueOf(wurf));
-    			labels[2].setText(zahlZuWort(wurf));
+    			actionButtons[0].setIcon(new ImageIcon(wurfZuBild(wurf)));
     			hatGewuerfelt = true;
     			displayActionRequired();
     		}
@@ -311,21 +303,35 @@ public class Frame extends JFrame {
     		} else {
     			board.setAnDerReihe(1);
     		}
-    		displayActivePlayer();
+    		displayActionRequired();
     	}
     	
-    	void displayActivePlayer(){
-    		String spieler = null;
+    	void displayActionRequired(){
     		if (board.getAnDerReihe() == 1) {
-    			spieler = "gelb";
+    			if(hatGewuerfelt) {
+        			labels[0].setIcon(new ImageIcon(im.ampelYM));
+        		} else {
+        			labels[0].setIcon(new ImageIcon(im.ampelYR));
+        		}
     		} else if (board.getAnDerReihe() == 2) {
-    			spieler = "rot";
+    			if(hatGewuerfelt) {
+        			labels[0].setIcon(new ImageIcon(im.ampelRM));
+        		} else {
+        			labels[0].setIcon(new ImageIcon(im.ampelRR));
+        		}
     		} else if (board.getAnDerReihe() == 3) {
-    			spieler = "blau";
+    			if(hatGewuerfelt) {
+        			labels[0].setIcon(new ImageIcon(im.ampelBM));
+        		} else {
+        			labels[0].setIcon(new ImageIcon(im.ampelBR));
+        		}
     		} else {
+    			if(hatGewuerfelt) {
+        			labels[0].setIcon(new ImageIcon(im.ampelBM));
+        		} else {
+        			labels[0].setIcon(new ImageIcon(im.ampelBR));
+        		}
     		}
-    			
-    		labels[0].setText("aktiv: " + spieler);
     	}
     	
     	String zahlZuWort(int zahl) {
@@ -345,26 +351,21 @@ public class Frame extends JFrame {
     			return "fehlerhafte Eingabe";
     	}
     	
-    	void displayActionRequired() {
-    		if(hatGewuerfelt) {
-    			labels[3].setText("bewegen");
+
+    	BufferedImage wurfZuBild(int wurf) {
+    		if (wurf == 1) {
+    			return im.eins;
+    		} else if (wurf == 2) {
+    			return im.zwei;
+    		} else if (wurf == 3) {
+    			return im.drei;
+    		} else if (wurf == 4) {
+    			return im.vier;
+    		} else if (wurf == 5) {
+    			return im.fuenf;
     		} else {
-    			labels[3].setText("würfeln");
+    			return im.sechs;
     		}
     	}
-
-    	void checkWinning() {
-    		if(board.gewinnen()) {
-    			if(board.getSpielerGewonnen() == 1) {
-    				labels[1].setText("GELB HAT GEWONNEN");
-    			} else if(board.getSpielerGewonnen() == 2) {
-    				labels[1].setText("ROT HAT GEWONNEN");
-    			} else if(board.getSpielerGewonnen() == 3) {
-    				labels[1].setText("BLAU HAT GEWONNEN");
-    			} else {
-    				labels[1].setText("GRüN HAT GEWONNEN");
-    			}   			
-    		}
-    	} 
 	} 
 

@@ -5,8 +5,6 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import TicTacToe.Components.Drawable;
-import TicTacToe.Graphics.Images;
 import java.awt.Toolkit;
 public class Draw extends JPanel{
 	
@@ -22,7 +20,7 @@ public class Draw extends JPanel{
 
         ImagesM a = new ImagesM();
         
-        g2.drawImage(a.board2, 0, 0,x,y, this);
+        g2.drawImage(a.board2, 0, 0,1920,1080, this);
     }
 }
 	
