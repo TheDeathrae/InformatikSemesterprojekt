@@ -8,26 +8,26 @@ import javax.imageio.ImageIO;
 
 public class ImagesM {
     
-    public final static String imageBoard2 = "Images/MenschAergereDichNicht/SpielfeldVersuch.png";
-    public final static String imageYellow = "Images/MenschAergereDichNicht/yellow.png";
-    public final static String imageRed = "Images/MenschAergereDichNicht/red.png";
-    public final static String imageBlue = "Images/MenschAergereDichNicht/blue.png";
-    public final static String imageGreen = "Images/MenschAergereDichNicht/green.png";
-    public final static String image1 = "Images/MenschAergereDichNicht/1.png";
-    public final static String image2 = "Images/MenschAergereDichNicht/2.png";
-    public final static String image3 = "Images/MenschAergereDichNicht/3.png";
-    public final static String image4 = "Images/MenschAergereDichNicht/4.png";
-    public final static String image5 = "Images/MenschAergereDichNicht/5.png";
-    public final static String image6 = "Images/MenschAergereDichNicht/6.png";
-    public final static String imageBewegen = "Images/MenschAergereDichNicht/bewegen.png";
-    public final static String imageYM = "Images/MenschAergereDichNicht/ampelYM.png";
-    public final static String imageYR = "Images/MenschAergereDichNicht/ampelYR.png";
-    public final static String imageRM = "Images/MenschAergereDichNicht/ampelRM.png";
-    public final static String imageRR = "Images/MenschAergereDichNicht/ampelRR.png";
-    public final static String imageGM = "Images/MenschAergereDichNicht/ampelGM.png";
-    public final static String imageGR = "Images/MenschAergereDichNicht/ampelGR.png";
-    public final static String imageBM = "Images/MenschAergereDichNicht/ampelBM.png";
-    public final static String imageBR = "Images/MenschAergereDichNicht/ampelBR.png";
+    public final static String imageBoard2 = "src/Images/MenschAergereDichNicht/SpielfeldVersuch.png";
+    public final static String imageYellow = "src/Images/MenschAergereDichNicht/yellow.png";
+    public final static String imageRed = "src/Images/MenschAergereDichNicht/red.png";
+    public final static String imageBlue = "src/Images/MenschAergereDichNicht/blue.png";
+    public final static String imageGreen = "src/Images/MenschAergereDichNicht/green.png";
+    public final static String image1 = "src/Images/MenschAergereDichNicht/1.png";
+    public final static String image2 = "src/Images/MenschAergereDichNicht/2.png";
+    public final static String image3 = "src/Images/MenschAergereDichNicht/3.png";
+    public final static String image4 = "src/Images/MenschAergereDichNicht/4.png";
+    public final static String image5 = "src/Images/MenschAergereDichNicht/5.png";
+    public final static String image6 = "src/Images/MenschAergereDichNicht/6.png";
+    public final static String imageBewegen = "src/Images/MenschAergereDichNicht/bewegen.png";
+    public final static String imageYM = "src/Images/MenschAergereDichNicht/ampelYM.png";
+    public final static String imageYR = "src/Images/MenschAergereDichNicht/ampelYR.png";
+    public final static String imageRM = "src/Images/MenschAergereDichNicht/ampelRM.png";
+    public final static String imageRR = "src/Images/MenschAergereDichNicht/ampelRR.png";
+    public final static String imageGM = "src/Images/MenschAergereDichNicht/ampelGM.png";
+    public final static String imageGR = "src/Images/MenschAergereDichNicht/ampelGR.png";
+    public final static String imageBM = "src/Images/MenschAergereDichNicht/ampelBM.png";
+    public final static String imageBR = "src/Images/MenschAergereDichNicht/ampelBR.png";
 
 
 

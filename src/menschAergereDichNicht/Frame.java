@@ -1,5 +1,6 @@
 package menschAergereDichNicht;
 
+import Spielmenue.FrameSpielmenue;
 import menschAergereDichNicht.Dice;
 
 
@@ -17,6 +18,8 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import Dame.MusicPlayer;
+
+
 public class Frame extends JFrame {
 
 	private JPanel contentPane;
@@ -28,7 +31,6 @@ public class Frame extends JFrame {
     Dice dice = new Dice();
     Board board = new Board();
 	MusicPlayer m = new MusicPlayer();
-    
 
     
 	public static void main(String[] args) {
@@ -41,7 +43,7 @@ public class Frame extends JFrame {
 
 			
 		// so startet man allgemein die Musik muss am anfang jedes spezifischen frames geschehen
-	    MusicPlayer m = new MusicPlayer();
+
 	    // man muss vorher einen Track auswäheln: 1 ist wald 2 ist tic... 3 ist mühle 4 ist ludo und 5 dame
 	    m.setTrack(4);
 	    Thread thread = m.playerThread;
@@ -142,8 +144,9 @@ public class Frame extends JFrame {
         actionButtons[2].setContentAreaFilled(false);
         actionButtons[2].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-            	m.setMusicOn(false);
-                dispose();
+				dispose();
+				m.setMusicOn(false);
+				FrameSpielmenue f = new FrameSpielmenue("Startmenü");
             }
         });
         add(actionButtons[2]);
@@ -257,7 +260,7 @@ public class Frame extends JFrame {
     			if( vorlage[i] == 0) {
     				buttons[i].setIcon(null);		
     			} else if(vorlage[i] == 1) {				
-    				buttons[i].setIcon(new ImageIcon(im.yellow));	
+    				buttons[i].setIcon(new ImageIcon(im.yellow));
     			} else if(vorlage[i] == 2) {				
     				buttons[i].setIcon(new ImageIcon(im.red));		
     			} else if(vorlage[i] == 3) {
