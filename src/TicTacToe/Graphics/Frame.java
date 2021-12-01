@@ -2,11 +2,15 @@ package TicTacToe.Graphics;
 
 import java.awt.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
+import Dame.MusicPlayer;
+import Spielmenue.FrameSpielmenue;
 import TicTacToe.Components.Circle;
 import TicTacToe.Components.Cross;
 import TicTacToe.Components.WinScreen;
@@ -16,6 +20,7 @@ import TicTacToe.Game.Zustand;
 public class Frame extends JFrame {
     private final Zustand zustand = new Zustand();
     private final DrawEngine draw_engine = new DrawEngine();
+    JButton zurueckZumMenue = new JButton();
 
     boolean inFrameX(int i) {
         return i >= DrawEngine.getPositionBoardX() && i < (DrawEngine.getPositionBoardX() + DrawEngine.getBoardSize());
@@ -26,8 +31,23 @@ public class Frame extends JFrame {
     }
 
     public Frame() {
+        // so startet man allgemein die Musik muss am anfang jedes spezifischen frames geschehen
+        MusicPlayer m = new MusicPlayer();
+        // man muss vorher einen Track auswäheln: 1 ist wald 2 ist tic... 3 ist mühle 4 ist ludo und 5 dame
+        m.setTrack(2);
+        Thread thread = m.playerThread;
+        thread.start();
         Images a = new Images();
-
+        zurueckZumMenue.setBounds(8, 8, 115, 120); // erste beiden Postion x,y die letzten beiden aktuelle GrÃ¶ÃŸe Breite													// und hÃ¶he
+        zurueckZumMenue.setContentAreaFilled(false);
+        zurueckZumMenue.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                dispose();
+                m.setMusicOn(false);
+                FrameSpielmenue f = new FrameSpielmenue("Startmenü");
+            }
+        });
+        add(zurueckZumMenue);
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Tic Tac Toe ");

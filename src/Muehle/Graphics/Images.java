@@ -1,6 +1,5 @@
 package Muehle.Graphics;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Images {
-    public final static String iconBluePiece = "src/Images/Muehle/SpielsteinBlau.png";
+    public final static String iconBluePiece = "src/Images/Muehle/SpielsteinRot.png";
     public final static String iconWhitePiece = "src/Images/Muehle/SpielsteinWeiss.png";
     public final static String imageWinScreen = "src/Images/TikTakToe/winSymbol.png";
     public final static String imageHintergrund = "src/Images/Muehle/Hintergrund.png";
@@ -30,6 +29,8 @@ public class Images {
 
     public ImageIcon BluePiece;
     public ImageIcon WhitePiece;
+    public BufferedImage BluePiece1;
+    public BufferedImage WhitePiece1;
     public BufferedImage winScreen;
     public BufferedImage hintergrund;
     public BufferedImage brett;
@@ -39,6 +40,8 @@ public class Images {
         try {
             BluePiece = new ImageIcon(iconBluePiece);
             WhitePiece = new ImageIcon(iconWhitePiece);
+            BluePiece1 = ImageIO.read(new File(iconBluePiece));
+            WhitePiece1 = ImageIO.read(new File(iconWhitePiece));
             winScreen = ImageIO.read(new File(imageWinScreen));
             hintergrund = ImageIO.read(new File(imageHintergrund));
             brett = ImageIO.read(new File(imageBrett));

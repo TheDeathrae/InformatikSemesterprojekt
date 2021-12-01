@@ -5,11 +5,10 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 
 public class ImagesM {
     
-    public final static String imageBoard2 = "Images/MenschAergereDichNicht/Spielfeld Versuch.png";
+    public final static String imageBoard2 = "Images/MenschAergereDichNicht/SpielfeldVersuch.png";
     public final static String imageYellow = "Images/MenschAergereDichNicht/yellow.png";
     public final static String imageRed = "Images/MenschAergereDichNicht/red.png";
     public final static String imageBlue = "Images/MenschAergereDichNicht/blue.png";
@@ -59,7 +58,6 @@ public class ImagesM {
 
     public ImagesM() {
         try {
-
             board2 = ImageIO.read(new File(imageBoard2));
             yellow = ImageIO.read(new File(imageYellow));
             red = ImageIO.read(new File(imageRed));

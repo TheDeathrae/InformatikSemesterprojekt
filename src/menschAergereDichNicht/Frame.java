@@ -16,16 +16,18 @@ import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import Dame.MusicPlayer;
 public class Frame extends JFrame {
 
 	private JPanel contentPane;
 	JButton[] buttons = new JButton[73];
-	JButton[] actionButtons = new JButton[3];
+	JButton[] actionButtons = new JButton[4];
 	JLabel[] labels = new JLabel[2];
     int positionSelected;
     ImagesM im = new ImagesM();
     Dice dice = new Dice();
     Board board = new Board();
+	MusicPlayer m = new MusicPlayer();
     
 
     
@@ -37,6 +39,14 @@ public class Frame extends JFrame {
 
 		public Frame(int spieler) {
 
+			
+		// so startet man allgemein die Musik muss am anfang jedes spezifischen frames geschehen
+	    MusicPlayer m = new MusicPlayer();
+	    // man muss vorher einen Track auswäheln: 1 ist wald 2 ist tic... 3 ist mühle 4 ist ludo und 5 dame
+	    m.setTrack(4);
+	    Thread thread = m.playerThread;
+	    thread.start(); 
+	    
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setTitle("Tic Tac Toe");
 	    setBounds(0, 0, 1920, 1080);
@@ -125,6 +135,18 @@ public class Frame extends JFrame {
 		actionButtons[1].setBounds(1560,704, 192, 136);
 		actionButtons[1].setBorder(BorderFactory.createEmptyBorder());
 		contentPane.add(actionButtons[1]);
+		
+		// JButton um zurück zu kehren
+        actionButtons[2] = new JButton("");
+        actionButtons[2].setBounds(8, 8, 115, 120); // erste beiden Postion x,y die letzten beiden aktuelle GrÃ¶ÃŸe Breite                                                    // und hÃ¶he
+        actionButtons[2].setContentAreaFilled(false);
+        actionButtons[2].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+            	m.setMusicOn(false);
+                dispose();
+            }
+        });
+        add(actionButtons[2]);
 	}
 	void createLabels() {
 		
@@ -327,9 +349,9 @@ public class Frame extends JFrame {
         		}
     		} else {
     			if(hatGewuerfelt) {
-        			labels[0].setIcon(new ImageIcon(im.ampelBM));
+        			labels[0].setIcon(new ImageIcon(im.ampelGM));
         		} else {
-        			labels[0].setIcon(new ImageIcon(im.ampelBR));
+        			labels[0].setIcon(new ImageIcon(im.ampelGR));
         		}
     		}
     	}

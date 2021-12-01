@@ -1,6 +1,8 @@
 package Muehle.Graphics;
 
+import Dame.MusicPlayer;
 import Muehle.Spielzustand;
+import Spielmenue.FrameSpielmenue;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +17,6 @@ public class DrawEngine extends JPanel {
     public static int boardCornerHeight = screenSize.height / 2 - boardSize / 2;
     public static int buttonSize = 84;
     boolean steinNehmen = false;
-    boolean steinNehmenNaechsterZug = false;
     Images a = new Images();
     public ImageIcon iconRed = a.BluePiece;
     public ImageIcon iconWhite = a.WhitePiece;
@@ -25,7 +26,7 @@ public class DrawEngine extends JPanel {
 
     public DrawEngine() {
         for (int i = 0; i < buttons.length; i++) {
-            JButton button = new JButton(i + "");
+            JButton button = new JButton();
             int final_button_no = i;
             button.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
@@ -34,52 +35,55 @@ public class DrawEngine extends JPanel {
             });
             add(button);
             buttons[i] = button;
+            buttons[i].setOpaque(false);
+            buttons[i].setBackground(new Color(0,0,0,0));
+            buttons[i].setBorderPainted(false);
         }
     }
 
     void zug(JButton jButton, int button_no) {
-        System.out.println("test");
         //Stein bewegen
         if (kannBewegen){
-            spielzustand.bewegen(bewegenVonFeld, button_no);
+            System.out.println("bewegt");
+            //spielzustand.bewegen(bewegenVonFeld, button_no);
             if (spielzustand.get_spielerAmZug() == 1) {
                 jButton.setIcon(iconRed);
             } else {
                 jButton.setIcon(iconWhite);
             }
+            spielzustand.naechsterSpieler();
             buttons[bewegenVonFeld].setIcon(null);
             kannBewegen = false;
         }
-        if (spielzustand.kannBewegen(button_no)){
-            System.out.println("test2");
+        if (spielzustand.kannBewegen(button_no) && !steinNehmen){
             bewegenVonFeld = button_no;
             kannBewegen = true;
         }
         //Stein setzen
-        if (spielzustand.setzen(button_no)) {
-            System.out.println("test3");
+        if (spielzustand.setzen(button_no) && !steinNehmen) {
+            System.out.println("gesetzt");
             if (spielzustand.get_spielerAmZug() == 1) {
                 jButton.setIcon(iconRed);
             } else {
                 jButton.setIcon(iconWhite);
             }
+            spielzustand.naechsterSpieler();
         }
         //Stein aufnehmen
-        if (spielzustand.kannSteinNehmen() && !steinNehmen) {
+        if (steinNehmen) {
+            if (spielzustand.steinNehmen(button_no)){
+                System.out.println("nimmt");
+                jButton.setIcon(null);
+                steinNehmen = false;
+                return;
+            }
+            System.out.println("kann diesen Stein nicht nehmen");
+            return;
+        }
+        if (spielzustand.kannSteinNehmen(button_no) && !steinNehmen) {
+            System.out.println("kann nehmen");
             steinNehmen = true;
-            steinNehmenNaechsterZug = false;
-            System.out.println("kannSteinNehmen");
         }
-        if (steinNehmen && steinNehmenNaechsterZug) {
-            System.out.println("genommen");
-            spielzustand.steinNehmen(button_no);
-            jButton.setIcon(null);
-            steinNehmen = false;
-            steinNehmenNaechsterZug = true;
-        } else {
-            steinNehmenNaechsterZug = true;
-        }
-        System.out.println("test4");
     }
 
 

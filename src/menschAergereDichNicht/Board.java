@@ -70,16 +70,16 @@ public class Board {
 	}
 	
 	boolean gewinnen() {
-		if(positionen[56]==1 && positionen[57]==1 && positionen[58]==1 && positionen[59]==1) {
+		if(positionen[40]==1 && positionen[41]==1 && positionen[42]==1 && positionen[43]==1) {
 			setSpielerGewonnen(1);
 			return true;
-		} else if(positionen[60]==2 && positionen[61]==2 && positionen[62]==2 && positionen[63]==2) {
+		} else if(positionen[44]==2 && positionen[45]==2 && positionen[46]==2 && positionen[47]==2) {
 			setSpielerGewonnen(2);
 			return true;
-		} else if(positionen[64]==3 && positionen[65]==3 && positionen[66]==3 && positionen[67]==3) {
+		} else if(positionen[48]==3 && positionen[49]==3 && positionen[50]==3 && positionen[51]==3) {
 			setSpielerGewonnen(3);
 			return true;
-		} else if(positionen[68]==4 && positionen[69]==4 && positionen[70]==4 && positionen[71]==4) {
+		} else if(positionen[52]==4 && positionen[53]==4 && positionen[54]==4 && positionen[55]==4) {
 			setSpielerGewonnen(4);
 			return true;
 		} else {
@@ -99,8 +99,8 @@ public class Board {
 			positionen[start] = 0;
 			positionen[ende] = startObjekt;
 			if(endObjekt == 1) {
-				for(int i = 56; i <= 59; i++) {
-					int a = 0;																					// sorgt dafür, dass nicht mehrere Plätze besetzt werden
+				int a = 0;	
+				for(int i = 56; i <= 59; i++) {																				// sorgt dafür, dass nicht mehrere Plätze besetzt werden
 					if(a == 0) {
 						if(positionen[i] == 0) {
 							positionen[i] = endObjekt;
@@ -109,8 +109,8 @@ public class Board {
 					}
 				}
 			} else if(endObjekt == 2) {
-				for(int i = 60; i <= 63; i++) {
-					int a = 0;																					
+				int a = 0;	
+				for(int i = 60; i <= 63; i++) {																				
 					if(a == 0) {
 						if(positionen[i] == 0) {
 							positionen[i] = endObjekt;
@@ -119,8 +119,8 @@ public class Board {
 					}
 				}
 			} else if(endObjekt == 3) {
-				for(int i = 64; i <= 67; i++) {
-					int a = 0;																					
+				int a = 0;	
+				for(int i = 64; i <= 67; i++) {																									
 					if(a == 0) {
 						if(positionen[i] == 0) {
 							positionen[i] = endObjekt;
@@ -129,8 +129,8 @@ public class Board {
 					}
 				}
 			} else if(endObjekt == 4) {
-				for(int i = 68; i <= 71; i++) {
-					int a = 0;																					
+				int a = 0;	
+				for(int i = 68; i <= 71; i++) {																		
 					if(a == 0) {
 						if(positionen[i] == 0) {
 							positionen[i] = endObjekt;
