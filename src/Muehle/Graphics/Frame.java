@@ -1,14 +1,11 @@
 package Muehle.Graphics;
 
-import Muehle.Spielzustand;
-
 import javax.swing.*;
 import java.awt.*;
 
 
 public class Frame extends JFrame {
-    private final Spielzustand zustand = new Spielzustand();
-    private final Muehle.Graphics.DrawEngine draw_engine = new Muehle.Graphics.DrawEngine();
+    private Muehle.Graphics.DrawEngine draw_engine = new Muehle.Graphics.DrawEngine();
 
     public Frame() {
         Muehle.Graphics.Images a = new Images();

@@ -9,8 +9,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Images {
-    public final static String imageBluePiece = "src/Images/Muehle/SpielsteinBlau.png";
-    public final static String imageWhitePiece = "src/Images/Muehle/SpielsteinWeiß.png";
+    public final static String iconBluePiece = "src/Images/Muehle/SpielsteinBlau.png";
+    public final static String iconWhitePiece = "src/Images/Muehle/SpielsteinWeiss.png";
     public final static String imageWinScreen = "src/Images/TikTakToe/winSymbol.png";
     public final static String imageHintergrund = "src/Images/Muehle/Hintergrund.png";
     public final static String imageBrett = "src/Images/Muehle/Brett.png";
@@ -28,8 +28,8 @@ public class Images {
         frame.setVisible(true);//making the frame visible
     }
 
-    public BufferedImage BluePiece;
-    public BufferedImage WhitePiece;
+    public ImageIcon BluePiece;
+    public ImageIcon WhitePiece;
     public BufferedImage winScreen;
     public BufferedImage hintergrund;
     public BufferedImage brett;
@@ -37,8 +37,8 @@ public class Images {
 
     public Images() {
         try {
-            BluePiece = ImageIO.read(new File(imageBluePiece));
-            WhitePiece = ImageIO.read(new File(imageWhitePiece));
+            BluePiece = new ImageIcon(iconBluePiece);
+            WhitePiece = new ImageIcon(iconWhitePiece);
             winScreen = ImageIO.read(new File(imageWinScreen));
             hintergrund = ImageIO.read(new File(imageHintergrund));
             brett = ImageIO.read(new File(imageBrett));

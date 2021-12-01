@@ -3,6 +3,7 @@ package Muehle;
 public class Spielzustand {
     int[] feld = new int[24];
     int spielerAmZug = 1;
+    int spielSteine[] = {9, 9};
 
     public int get_spielerAmZug() {
         return this.spielerAmZug;
@@ -13,16 +14,30 @@ public class Spielzustand {
     }
 
     public boolean setzen(int zug) {
-        if (!feldFrei(zug)) {
+        if (!feldFrei(zug)  || spielSteine[spielerAmZug-1] == 0) {
             return false;
         }
         feld[zug] = spielerAmZug;
-        this.spielerAmZug = this.spielerAmZug == 1 ? 2 : 1;
+        this.spielerAmZug = this.spielerAmZug == 1 ? 2 : 1; //nächster Spieler
+        spielSteine[spielerAmZug-1]--;
+        System.out.println("naechster Spieler");
         return true;
     }
 
+    public boolean kannBewegen(int zug){
+        if (feldFrei(zug)  || spielSteine[spielerAmZug -1] < 0 || feld[zug] != spielerAmZug) {
+            return false;
+        }
+        return true;
+    }
+
+    public void bewegen(int bewegenVonFeld, int zug){
+        feld[bewegenVonFeld] = 0;
+        feld[zug] = spielerAmZug;
+    }
+
     public boolean steinNehmen(int zug) {
-        if (feldFrei(zug)) {
+        if (feldFrei(zug) || feld[zug] == spielerAmZug) {
             return false;
         }
         feld[zug] = 0;
@@ -75,13 +90,13 @@ public class Spielzustand {
         boolean nichtLeer = false;
         for (int i = 0; i < 24; ) {
             if (feld[i] != spielerAmZug) {
-                i++;
                 if ((i == 23) && nichtLeer) {
                     return true;
                 }
-            }
-            if (feld[i] != 0) {
-                nichtLeer = true;
+                if (feld[i] != 0) {
+                    nichtLeer = true;
+                }
+                i++;
             }
         }
         return false;
